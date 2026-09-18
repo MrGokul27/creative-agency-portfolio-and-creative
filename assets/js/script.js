@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadFooter();
   initScrollFeatures();
+  initCounterAnimation();
 });
 
 function initScrollFeatures() {
@@ -181,3 +182,71 @@ function getCurrentPageName() {
   if (path.includes("contact")) return "contact";
   return "home";
 }
+
+/**
+ * Animates running statistics counter numbers when scrolled into view
+ */
+function initCounterAnimation() {
+  const statNumbers = document.querySelectorAll(".stat-number[data-target]");
+  if (!statNumbers.length) return;
+
+  const duration = 1800; // ms
+
+  const animateCounter = (el) => {
+    const rawTarget = el.getAttribute("data-target");
+    const target = parseFloat(rawTarget);
+    if (isNaN(target)) return;
+
+    const decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    const suffix = el.getAttribute("data-suffix") || "";
+    const startTime = performance.now();
+
+    const updateCount = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Cubic ease-out curve for smooth deceleration
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentVal = target * easeOut;
+
+      if (decimals > 0) {
+        el.textContent = currentVal.toFixed(decimals) + suffix;
+      } else {
+        el.textContent = Math.floor(currentVal) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        el.textContent = (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+      }
+    };
+
+    requestAnimationFrame(updateCount);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observerOptions = {
+      root: null,
+      threshold: 0.25,
+    };
+
+    const statsSection = document.querySelector(".home-stats-section");
+    if (statsSection) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            statNumbers.forEach((el) => animateCounter(el));
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      observer.observe(statsSection);
+    } else {
+      statNumbers.forEach((el) => animateCounter(el));
+    }
+  } else {
+    statNumbers.forEach((el) => animateCounter(el));
+  }
+}
+
