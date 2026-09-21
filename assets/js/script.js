@@ -217,7 +217,8 @@ function initCounterAnimation() {
       if (progress < 1) {
         requestAnimationFrame(updateCount);
       } else {
-        el.textContent = (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+        el.textContent =
+          (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
       }
     };
 
@@ -227,21 +228,27 @@ function initCounterAnimation() {
   if ("IntersectionObserver" in window) {
     const observerOptions = {
       root: null,
-      threshold: 0.25,
+      threshold: 0.2,
     };
 
-    const statsSection = document.querySelector(".home-stats-section");
-    if (statsSection) {
+    const statsSections = document.querySelectorAll(
+      ".home-stats-section, .services-why-choose-section",
+    );
+
+    if (statsSections.length > 0) {
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            statNumbers.forEach((el) => animateCounter(el));
+            const numbers = entry.target.querySelectorAll(
+              ".stat-number[data-target]",
+            );
+            numbers.forEach((el) => animateCounter(el));
             obs.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      observer.observe(statsSection);
+      statsSections.forEach((section) => observer.observe(section));
     } else {
       statNumbers.forEach((el) => animateCounter(el));
     }
@@ -249,4 +256,3 @@ function initCounterAnimation() {
     statNumbers.forEach((el) => animateCounter(el));
   }
 }
-
