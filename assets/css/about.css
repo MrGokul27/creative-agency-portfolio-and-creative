@@ -1,0 +1,206 @@
+/* ==========================================================================
+   ABOUT PAGE STYLES - Stackly Creative Agency
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   About Banner Section
+   -------------------------------------------------------------------------- */
+.about-banner-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 85px 0 95px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Left Column Content */
+.about-banner-content {
+  padding-right: 1.5rem;
+}
+
+/* Badge / Subtitle with purple line indicator */
+.about-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.about-badge-line {
+  width: 28px;
+  height: 4.5px;
+  background-color: #832aff;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.about-badge-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #832aff;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Main Heading */
+.about-banner-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.3rem, 3.8vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #111111;
+  margin-bottom: 24px;
+}
+
+/* Purple / Magenta Gradient Text Highlight */
+.about-banner-title .gradient-text-purple {
+  background: linear-gradient(90deg, #9333ea 0%, #a855f7 40%, #c026d3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Description Text */
+.about-banner-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15.5px;
+  font-weight: 450;
+  line-height: 1.65;
+  color: #3b4252;
+  max-width: 485px;
+  margin-bottom: 36px;
+}
+
+/* CTA Button */
+.about-banner-cta {
+  display: flex;
+  align-items: center;
+}
+
+.btn-about-story {
+  background-color: #000000;
+  color: #ffffff !important;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 13.5px 28px;
+  border-radius: 50px;
+  border: 1.5px solid #000000;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-about-story .btn-arrow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform 0.25s ease;
+}
+
+.btn-about-story:hover {
+  background-color: #1e1e1e;
+  border-color: #1e1e1e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.btn-about-story:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+.btn-about-story:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Right Column Media Styling
+   -------------------------------------------------------------------------- */
+.about-banner-media-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Image Container */
+.about-banner-img-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-banner-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-banner-img:hover {
+  transform: scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .about-banner-section {
+    padding: 55px 0 65px 0;
+  }
+
+  .about-banner-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .about-banner-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 18px;
+  }
+
+  .about-banner-desc {
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-banner-section {
+    padding: 40px 0 50px 0;
+  }
+
+  .about-badge-text {
+    font-size: 12px;
+  }
+
+  .about-banner-title {
+    font-size: 1.85rem;
+  }
+
+  .about-banner-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .btn-about-story {
+    width: 100%;
+    justify-content: center;
+  }
+}
