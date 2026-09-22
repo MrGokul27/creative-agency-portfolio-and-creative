@@ -1009,3 +1009,750 @@
     font-size: 18px;
   }
 }
+
+/* Portfolio Team Section (Meet the Creative Minds) */
+.portfolio-team-section {
+  position: relative;
+  background-color: #142b69;
+  padding: 95px 0 95px 0;
+  overflow: hidden;
+}
+
+.portfolio-team-content {
+  max-width: 380px;
+}
+
+/* Badge / Subtitle */
+.portfolio-team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.portfolio-team-badge .badge-line {
+  width: 28px;
+  height: 4.5px;
+  background-color: #832aff;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.portfolio-team-badge .badge-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #832aff;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Main Heading */
+.portfolio-team-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Description */
+.portfolio-team-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15.5px;
+  font-weight: 450;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 32px;
+}
+
+/* CTA Button */
+.portfolio-team-cta {
+  display: flex;
+  align-items: center;
+}
+
+.btn-portfolio-team {
+  background-color: #832aff;
+  color: #ffffff !important;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 34px;
+  border-radius: 50px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(131, 42, 255, 0.35);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-portfolio-team:hover {
+  background-color: #6e1de0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(131, 42, 255, 0.5);
+}
+
+.btn-portfolio-team:active {
+  transform: translateY(0);
+}
+
+/* Team Member Card */
+.portfolio-team-card {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-team-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.portfolio-team-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-team-card:hover .portfolio-team-img {
+  transform: scale(1.03);
+}
+
+/* Team Info */
+.portfolio-team-info {
+  padding-top: 14px;
+}
+
+.portfolio-team-name {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.portfolio-team-role {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 450;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Social Links */
+.portfolio-team-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portfolio-team-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.portfolio-team-social-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive Styles for Team Section */
+@media (max-width: 991.98px) {
+  .portfolio-team-section {
+    padding: 70px 0 70px 0;
+  }
+
+  .portfolio-team-content {
+    max-width: 100%;
+    margin-bottom: 36px;
+  }
+
+  .portfolio-team-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 18px;
+  }
+
+  .portfolio-team-desc {
+    max-width: 100%;
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .portfolio-team-section {
+    padding: 50px 0 55px 0;
+  }
+
+  .portfolio-team-badge .badge-text {
+    font-size: 12px;
+  }
+
+  .portfolio-team-title {
+    font-size: 1.85rem;
+  }
+
+  .portfolio-team-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .btn-portfolio-team {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .portfolio-team-card {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Portfolio Testimonials Section (What Our Clients Says) */
+.portfolio-testimonials-section {
+  position: relative;
+  background-color: #bcb0ff26;
+  padding: 95px 0;
+  overflow: hidden;
+}
+
+.portfolio-testimonials-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.portfolio-testimonials-subtitle {
+  display: inline-block;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #832aff;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.portfolio-testimonials-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 2.75rem);
+  font-weight: 900;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.portfolio-testimonials-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15px;
+  font-weight: 450;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 28px;
+}
+
+.btn-portfolio-testimonials {
+  background-color: #ffffff;
+  color: #111111 !important;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 13px 32px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-portfolio-testimonials:hover {
+  background-color: #111111;
+  color: #ffffff !important;
+  border-color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.btn-portfolio-testimonials:active {
+  transform: translateY(0);
+}
+
+/* Testimonial Cards */
+.portfolio-testimonial-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 26px 22px 22px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(131, 42, 255, 0.3);
+  box-shadow: 0 16px 32px rgba(131, 42, 255, 0.08);
+}
+
+.portfolio-testimonial-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #2b2b2b;
+  font-weight: 450;
+  margin-bottom: 22px;
+}
+
+.portfolio-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.portfolio-testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-testimonial-author-name {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.portfolio-testimonial-author-role {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 450;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  display: block;
+}
+
+.portfolio-testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.portfolio-testimonial-rating i {
+  color: #ffb800;
+  font-size: 13px;
+}
+
+/* Responsive Styles for Portfolio Testimonials Section */
+@media (max-width: 991.98px) {
+  .portfolio-testimonials-section {
+    padding: 70px 0;
+  }
+
+  .portfolio-testimonials-content {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .portfolio-testimonials-section {
+    padding: 50px 0;
+  }
+
+  .portfolio-testimonials-subtitle {
+    font-size: 12px;
+  }
+
+  .portfolio-testimonials-title {
+    font-size: 1.85rem;
+  }
+
+  .portfolio-testimonials-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .btn-portfolio-testimonials {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Portfolio Blog Section (Latest Insights) */
+.portfolio-blog-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 95px 0;
+  overflow: hidden;
+}
+
+.portfolio-blog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.portfolio-blog-subtitle {
+  display: inline-block;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #832aff;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.portfolio-blog-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 2.75rem);
+  font-weight: 900;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.portfolio-blog-title .portfolio-blog-highlight {
+  color: #de3aff;
+}
+
+.portfolio-blog-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15px;
+  font-weight: 450;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 28px;
+  max-width: 360px;
+}
+
+.btn-portfolio-blog {
+  background-color: #ffffff;
+  color: #111111 !important;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-portfolio-blog i {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.btn-portfolio-blog:hover {
+  background-color: #111111;
+  color: #ffffff !important;
+  border-color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.btn-portfolio-blog:hover i {
+  transform: translateX(4px);
+}
+
+.btn-portfolio-blog:active {
+  transform: translateY(0);
+}
+
+/* Blog Cards */
+.portfolio-blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.portfolio-blog-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-blog-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(131, 42, 255, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-blog-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.portfolio-blog-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-blog-card:hover .portfolio-blog-img {
+  transform: scale(1.04);
+}
+
+.portfolio-blog-card-body {
+  padding: 18px 22px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.portfolio-blog-category {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.portfolio-blog-card-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 18px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive Styles for Portfolio Blog Section */
+@media (max-width: 991.98px) {
+  .portfolio-blog-section {
+    padding: 70px 0;
+  }
+
+  .portfolio-blog-content {
+    margin-bottom: 28px;
+    max-width: 100%;
+  }
+
+  .portfolio-blog-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .portfolio-blog-section {
+    padding: 50px 0;
+  }
+
+  .portfolio-blog-subtitle {
+    font-size: 12px;
+  }
+
+  .portfolio-blog-title {
+    font-size: 1.85rem;
+  }
+
+  .portfolio-blog-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .btn-portfolio-blog {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* HAVE A PROJECT IN MIND / CTA SECTION (PORTFOLIO PAGE) */
+.portfolio-cta-section {
+  position: relative;
+  background: linear-gradient(95deg, #8427e0 0%, #5e2ca9 48%, #2847b8 100%);
+  padding: 68px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.portfolio-cta-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative Ellipse Images */
+.portfolio-cta-ellipse {
+  position: absolute;
+  top: 90%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+  height: 100%;
+  max-height: 190px;
+  width: auto;
+  object-fit: contain;
+}
+
+.portfolio-cta-ellipse-left {
+  left: 0;
+  object-position: left center;
+}
+
+.portfolio-cta-ellipse-right {
+  right: 0;
+  object-position: right center;
+}
+
+/* Left Content Area */
+.portfolio-cta-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Heading */
+.portfolio-cta-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 3.8vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin-bottom: 8px;
+}
+
+/* Description */
+.portfolio-cta-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 16px;
+  font-weight: 450;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* CTA Pill Button */
+.btn-portfolio-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2b1754;
+  background: linear-gradient(135deg, #2f195d 0%, #231248 100%);
+  color: #ffffff !important;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  padding: 13px 38px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-portfolio-cta:hover {
+  background: linear-gradient(135deg, #3d2077 0%, #2f195d 100%);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-portfolio-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Styles for Portfolio CTA Section */
+@media (max-width: 991.98px) {
+  .portfolio-cta-section {
+    padding: 55px 0;
+  }
+
+  .portfolio-cta-ellipse {
+    max-height: 140px;
+    opacity: 0.85;
+  }
+
+  .portfolio-cta-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .portfolio-cta-section {
+    padding: 48px 0;
+  }
+
+  .portfolio-cta-title {
+    font-size: 1.85rem;
+  }
+
+  .portfolio-cta-desc {
+    font-size: 14.5px;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-cta-ellipse {
+    max-height: 110px;
+    opacity: 0.65;
+  }
+}

@@ -1585,7 +1585,7 @@
 /* Decorative Ellipse Images */
 .about-cta-ellipse {
   position: absolute;
-  top: 50%;
+  top: 90%;
   transform: translateY(-50%);
   pointer-events: none;
   z-index: 1;
