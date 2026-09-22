@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollFeatures();
   initCounterAnimation();
   initPortfolioFilters();
+  initBlogFeatures();
 });
 
 function initScrollFeatures() {
@@ -293,4 +294,70 @@ function initPortfolioFilters() {
       });
     });
   });
+}
+
+/**
+ * Initializes interactive blog features (Search, Pagination, and Category Filtering)
+ */
+function initBlogFeatures() {
+  const searchInput = document.querySelector(".blog-search-input");
+  const blogCards = document.querySelectorAll(
+    ".blog-listing-section .blog-card",
+  );
+
+  if (searchInput && blogCards.length) {
+    searchInput.addEventListener("input", (e) => {
+      const term = e.target.value.toLowerCase().trim();
+
+      blogCards.forEach((card) => {
+        const title =
+          card.querySelector(".blog-card-title")?.textContent.toLowerCase() ||
+          "";
+        const desc =
+          card.querySelector(".blog-card-desc")?.textContent.toLowerCase() ||
+          "";
+        const tag =
+          card.querySelector(".blog-tag")?.textContent.toLowerCase() || "";
+        const col = card.closest(".col-12");
+
+        if (!col) return;
+
+        if (title.includes(term) || desc.includes(term) || tag.includes(term)) {
+          col.style.display = "";
+        } else {
+          col.style.display = "none";
+        }
+      });
+    });
+  }
+
+  // Pagination buttons active state toggle
+  const paginationNumbers = document.querySelectorAll(".pagination-number");
+  paginationNumbers.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      paginationNumbers.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+
+  // Blog newsletter subscription feedback
+  const newsletterForm = document.querySelector(".blog-newsletter-form");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = newsletterForm.querySelector(".blog-newsletter-input");
+      const btn = newsletterForm.querySelector(".blog-newsletter-btn");
+      if (input && input.value) {
+        const originalText = btn.textContent;
+        btn.textContent = "Subscribed!";
+        btn.style.backgroundColor = "#16a34a";
+        input.value = "";
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.backgroundColor = "";
+        }, 3000);
+      }
+    });
+  }
 }
