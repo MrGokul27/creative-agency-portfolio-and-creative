@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadFooter();
   initScrollFeatures();
   initCounterAnimation();
+  initPortfolioFilters();
 });
 
 function initScrollFeatures() {
@@ -255,4 +256,41 @@ function initCounterAnimation() {
   } else {
     statNumbers.forEach((el) => animateCounter(el));
   }
+}
+
+/**
+ * Initializes portfolio filter pill buttons toggle interaction & card filtering
+ */
+function initPortfolioFilters() {
+  const filterBtns = document.querySelectorAll(".portfolio-filter-btn");
+  if (!filterBtns.length) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filterVal = btn.getAttribute("data-filter") || "all";
+      const projectCols = document.querySelectorAll(
+        ".portfolio-project-card-col",
+      );
+
+      projectCols.forEach((col) => {
+        const category = col.getAttribute("data-category");
+        if (filterVal === "all" || category === filterVal) {
+          col.style.display = "";
+          setTimeout(() => {
+            col.style.opacity = "1";
+            col.style.transform = "scale(1)";
+          }, 10);
+        } else {
+          col.style.opacity = "0";
+          col.style.transform = "scale(0.96)";
+          setTimeout(() => {
+            col.style.display = "none";
+          }, 250);
+        }
+      });
+    });
+  });
 }
