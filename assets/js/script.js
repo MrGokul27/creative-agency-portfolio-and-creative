@@ -232,7 +232,7 @@ function initCounterAnimation() {
     };
 
     const statsSections = document.querySelectorAll(
-      ".home-stats-section, .services-why-choose-section",
+      ".home-stats-section, .services-why-choose-section, .about-impact-section",
     );
 
     if (statsSections.length > 0) {

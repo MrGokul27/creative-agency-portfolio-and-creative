@@ -723,10 +723,12 @@
   margin-bottom: 14px;
 }
 
+.quote-bulb-icon,
 .quote-bulb-svg {
-  width: 38px;
-  height: 38px;
+  font-size: 34px;
+  color: #832aff;
   display: inline-block;
+  line-height: 1;
 }
 
 .quote-card-body {
@@ -753,12 +755,16 @@
   margin-top: auto;
 }
 
+.quote-arrow-icon,
 .quote-arrow-svg {
-  width: 32px;
-  height: 22px;
+  font-size: 24px;
+  color: #832aff;
   transition: transform 0.25s ease;
+  display: inline-block;
+  line-height: 1;
 }
 
+.process-quote-card:hover .quote-arrow-icon,
 .process-quote-card:hover .quote-arrow-svg {
   transform: translateX(6px);
 }
@@ -957,6 +963,11 @@
     transform 0.25s ease,
     box-shadow 0.25s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.add-service-icon-box i {
+  font-size: 20px;
+  color: #14172a;
 }
 
 .additional-service-item:hover .add-service-icon-box {
