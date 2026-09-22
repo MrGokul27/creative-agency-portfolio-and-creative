@@ -99,7 +99,7 @@
 /* Main Heading */
 .about-banner-title {
   font-family: var(--font-inter, "Inter", sans-serif);
-  font-size: clamp(2.3rem, 3.6vw, 3.15rem);
+  font-size: clamp(2.3rem, 3.6vw, 3rem);
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -334,7 +334,7 @@
 /* Main Heading */
 .about-story-title {
   font-family: var(--font-inter, "Inter", sans-serif);
-  font-size: clamp(2.2rem, 3.6vw, 3.15rem);
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -858,7 +858,7 @@
 /* Main Heading */
 .about-impact-title {
   font-family: var(--font-inter, "Inter", sans-serif);
-  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-size: clamp(2.2rem, 3.4vw, 2.5rem);
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -1083,5 +1083,648 @@
 
   .impact-card-label {
     font-size: 12px;
+  }
+}
+
+/* ==========================================================================
+   Our Process Section (How We Bring Ideas to Life)
+   ========================================================================== */
+.about-process-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 95px 0 105px 0;
+  overflow: hidden;
+}
+
+.about-process-header {
+  text-align: left;
+}
+
+.about-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.about-process-badge .badge-line {
+  width: 28px;
+  height: 4.5px;
+  background-color: #832aff;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.about-process-badge .badge-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #832aff;
+  display: inline-block;
+  line-height: 1;
+}
+
+.about-process-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.2rem, 3.4vw, 2.5rem);
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+/* Process Steps Track Layout */
+.about-process-section .process-steps-track {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+}
+
+.about-process-section .process-step-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.about-process-section .process-step-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Circular Icon Wrappers */
+.about-process-section .process-step-icon-wrap {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 22px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-process-section .process-step-item:hover .process-step-icon-wrap {
+  transform: scale(1.08);
+}
+
+.about-process-section .process-step-icon-wrap.icon-purple {
+  background-color: #f5efff;
+  color: #832aff;
+}
+
+.about-process-section .process-step-icon-wrap.icon-blue {
+  background-color: #edf4ff;
+  color: #3b82f6;
+}
+
+.about-process-section .process-step-icon-wrap.icon-purple-alt {
+  background-color: #f6efff;
+  color: #832aff;
+}
+
+.about-process-section .process-step-icon-wrap.icon-green {
+  background-color: #eafaf4;
+  color: #10b981;
+}
+
+/* Step Title & Number Badge */
+.about-process-section .process-step-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.about-process-section .process-step-badge {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  background-color: #832aff;
+  color: #ffffff;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.about-process-section .process-step-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+
+.about-process-section .process-step-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #64748b;
+  margin-bottom: 0;
+}
+
+/* Arrow Connector */
+.about-process-section .process-step-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+  color: #94a3b8;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Right Highlight Quote Card */
+.about-process-section .process-quote-card {
+  background-color: #f5f1fe;
+  border-radius: 22px;
+  padding: 24px 22px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 210px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-process-section .process-quote-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(131, 42, 255, 0.08);
+}
+
+.about-process-section .quote-card-header {
+  margin-bottom: 14px;
+}
+
+.about-process-section .quote-bulb-icon,
+.about-process-section .quote-bulb-svg {
+  display: inline-block;
+  line-height: 1;
+}
+
+.about-process-section .quote-card-body {
+  margin-bottom: 20px;
+}
+
+.about-process-section .quote-card-heading {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 19.5px;
+  font-weight: 800;
+  line-height: 1.26;
+  color: #111111;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+}
+
+.about-process-section .quote-card-heading .purple-highlight {
+  color: #832aff;
+}
+
+.about-process-section .quote-card-footer {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.about-process-section .quote-arrow-icon,
+.about-process-section .quote-arrow-svg {
+  font-size: 24px;
+  color: #832aff;
+  transition: transform 0.25s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.about-process-section .process-quote-card:hover .quote-arrow-icon,
+.about-process-section .process-quote-card:hover .quote-arrow-svg {
+  transform: translateX(6px);
+}
+
+/* Responsive Styles for Process Section */
+@media (max-width: 1199.98px) {
+  .about-process-section .process-step-title {
+    font-size: 15px;
+    white-space: normal;
+  }
+
+  .about-process-section .process-step-desc {
+    font-size: 13px;
+  }
+
+  .about-process-section .quote-card-heading {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .about-process-section {
+    padding: 65px 0 75px 0;
+  }
+
+  .about-process-header {
+    margin-bottom: 40px;
+  }
+
+  .about-process-section .process-steps-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  .about-process-section .process-step-divider {
+    display: none;
+  }
+
+  .about-process-section .process-quote-card {
+    min-height: auto;
+    margin-top: 8px;
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-process-section {
+    padding: 48px 0 56px 0;
+  }
+
+  .about-process-title {
+    font-size: 1.75rem;
+  }
+
+  .about-process-section .process-steps-track {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-process-section .process-step-icon-wrap {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .about-process-section .process-quote-card {
+    padding: 24px 20px;
+  }
+
+  .about-process-section .quote-card-heading {
+    font-size: 18px;
+  }
+}
+
+/* ==========================================================================
+   About Testimonials Section (#BCB0FF26 BG & 5 Stars Rating)
+   ========================================================================== */
+.about-testimonials-section {
+  position: relative;
+  background-color: #bcb0ff26;
+  padding: 95px 0;
+  overflow: hidden;
+}
+
+.about-testimonials-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+
+.about-testimonials-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.about-testimonials-badge .badge-line {
+  width: 28px;
+  height: 4.5px;
+  background-color: #832aff;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.about-testimonials-badge .badge-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #832aff;
+  display: inline-block;
+  line-height: 1;
+}
+
+.about-testimonials-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 2rem);
+  font-weight: 900;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+/* Testimonial Cards */
+.about-testimonial-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 26px 22px 22px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(131, 42, 255, 0.3);
+  box-shadow: 0 16px 32px rgba(131, 42, 255, 0.08);
+}
+
+.about-testimonial-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #2b2b2b;
+  font-weight: 450;
+  margin-bottom: 22px;
+}
+
+.about-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.about-testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-testimonial-author-name {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.about-testimonial-author-role {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 12.5px;
+  font-weight: 450;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  display: block;
+}
+
+.about-testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.about-testimonial-rating i {
+  color: #ffb800;
+  font-size: 13px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 991.98px) {
+  .about-testimonials-section {
+    padding: 70px 0;
+  }
+
+  .about-testimonials-content {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-testimonials-section {
+    padding: 50px 0;
+  }
+
+  .about-testimonials-badge .badge-text {
+    font-size: 12px;
+  }
+
+  .about-testimonials-title {
+    font-size: 1.95rem;
+  }
+
+  .about-testimonial-card {
+    padding: 22px 18px;
+  }
+}
+
+/* ==========================================================================
+   LET'S WORK TOGETHER / CTA SECTION (ABOUT PAGE)
+   ========================================================================== */
+.about-cta-section {
+  position: relative;
+  background: radial-gradient(
+    ellipse 70% 120% at 50% 50%,
+    #220f3e 0%,
+    #15082b 55%,
+    #0e051d 100%
+  );
+  padding: 68px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.about-cta-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative Ellipse Images */
+.about-cta-ellipse {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+  height: 100%;
+  max-height: 190px;
+  width: auto;
+  object-fit: contain;
+}
+
+.about-cta-ellipse-left {
+  left: 0;
+  object-position: left center;
+}
+
+.about-cta-ellipse-right {
+  right: 0;
+  object-position: right center;
+}
+
+/* Left Content Area */
+.about-cta-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Badge / Subtitle */
+.about-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.about-cta-badge .cta-badge-line {
+  width: 28px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.about-cta-badge .cta-badge-text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Main Heading */
+.about-cta-title {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: clamp(2.1rem, 3.8vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+/* Description / Subtitle */
+.about-cta-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 16px;
+  font-weight: 450;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* CTA Pill Button */
+.btn-about-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #9333ea;
+  background: linear-gradient(135deg, #9333ea 0%, #8b2df0 100%);
+  color: #ffffff !important;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  padding: 14px 38px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.45);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-about-cta:hover {
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(168, 85, 247, 0.6);
+}
+
+.btn-about-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 16px rgba(147, 51, 234, 0.45);
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  .about-cta-section {
+    padding: 55px 0;
+  }
+
+  .about-cta-ellipse {
+    max-height: 140px;
+    opacity: 0.85;
+  }
+
+  .about-cta-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-cta-section {
+    padding: 48px 0;
+    text-align: left;
+  }
+
+  .about-cta-title {
+    font-size: 1.85rem;
+  }
+
+  .about-cta-desc {
+    font-size: 14.5px;
+    margin-bottom: 8px;
+  }
+
+  .about-cta-ellipse {
+    max-height: 110px;
+    opacity: 0.65;
   }
 }
