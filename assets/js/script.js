@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPortfolioFilters();
   initBlogFeatures();
   initContactForm();
+  initEmptyLinksRedirect();
 });
 
 function initScrollFeatures() {
@@ -458,4 +459,46 @@ function initContactForm() {
       }
     });
   }
+}
+
+/**
+ * Universal redirect for empty, hash (#), or placeholder links to 404 page
+ */
+function initEmptyLinksRedirect() {
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    // Preserve special Bootstrap toggles or explicit data-no-redirect links
+    if (
+      link.getAttribute("data-bs-toggle") ||
+      link.getAttribute("data-bs-target") ||
+      link.hasAttribute("data-no-redirect")
+    ) {
+      return;
+    }
+
+    const href = link.getAttribute("href");
+
+    // Check if the link is empty or a dummy placeholder
+    const isDummyLink =
+      href === null ||
+      href === undefined ||
+      href.trim() === "" ||
+      href === "#" ||
+      href === "#!" ||
+      href === "javascript:;" ||
+      href === "javascript:void(0)" ||
+      href === "javascript:void(0);";
+
+    if (isDummyLink) {
+      e.preventDefault();
+      const isInPages =
+        document.body.dataset.inPages === "true" ||
+        window.location.pathname.replace(/\\/g, "/").includes("/pages/");
+
+      const target404 = isInPages ? "../404.html" : "404.html";
+      window.location.href = target404;
+    }
+  });
 }

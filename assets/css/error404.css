@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-inter:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bg-primary: #ffffff;
+  --text-dark: #111827;
+  --text-muted: #64748b;
+  --gradient-404: linear-gradient(
+    135deg,
+    #3730a3 0%,
+    #6d28d9 35%,
+    #a824e4 65%,
+    #f43f8e 100%
+  );
+  --gradient-btn: linear-gradient(90deg, #1034a6 0%, #7b2cbf 50%, #ea2aab 100%);
+  --gradient-btn-hover: linear-gradient(
+    90deg,
+    #0d2a88 0%,
+    #6924a4 50%,
+    #d31f98 100%
+  );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.error-404-body {
+  font-family: var(--font-inter);
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Top Header with Brand Logo */
+.error-404-header {
+  width: 100%;
+  padding: 36px 48px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.error-404-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.error-404-logo-link:hover {
+  transform: scale(1.02);
+}
+
+.error-404-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Center Content Container */
+.error-404-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 40px;
+  text-align: center;
+}
+
+.error-404-content {
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 404 Gradient Number */
+.error-404-code {
+  font-size: clamp(90px, 14vw, 150px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  margin: 0 0 16px;
+  background: var(--gradient-404);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+  filter: drop-shadow(0 4px 20px rgba(123, 44, 191, 0.15));
+}
+
+/* Title */
+.error-404-title {
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+  margin: 0 0 10px;
+}
+
+/* Subtitle / Paragraph */
+.error-404-desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0 0 32px;
+}
+
+/* Button Actions */
+.error-404-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Primary Gradient Button (Matches Screenshot) */
+.btn-404-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gradient-btn);
+  color: #ffffff !important;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(123, 44, 191, 0.45);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.btn-404-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(234, 42, 171, 0.55);
+  opacity: 0.96;
+  color: #ffffff !important;
+}
+
+.btn-404-home:active {
+  transform: translateY(0);
+}
+
+/* Secondary Go Back Button */
+.btn-404-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #334155 !important;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1.5px solid #e2e8f0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.btn-404-back:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-404-back:active {
+  transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .error-404-header {
+    padding: 24px 20px;
+    position: relative;
+  }
+
+  .error-404-logo-img {
+    height: 32px;
+  }
+
+  .error-404-main {
+    padding: 40px 20px 40px;
+  }
+
+  .error-404-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-404-home,
+  .btn-404-back {
+    width: 100%;
+    max-width: 280px;
+  }
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | Stackly Creative Agency</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6 Latest -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Custom 404 Stylesheet -->
+    <link rel="stylesheet" href="assets/css/error404.css" />
+  </head>
+  <body class="error-404-body">
+    <!-- Top Brand Logo Header -->
+    <header class="error-404-header">
+      <a href="index.html" class="error-404-logo-link" title="Stackly Home">
+        <img
+          src="assets/images/stackly-logo.webp"
+          alt="Stackly Logo"
+          class="error-404-logo-img"
+        />
+      </a>
+    </header>
+
+    <!-- Main Center 404 Content -->
+    <main class="error-404-main">
+      <div class="error-404-content">
+        <!-- 404 Gradient Number -->
+        <h1 class="error-404-code">404</h1>
+
+        <!-- Subtitle -->
+        <h2 class="error-404-title">Oops! Page not found</h2>
+
+        <!-- Description Paragraph -->
+        <p class="error-404-desc">
+          The page your looking for doesn't exist<br />or has been moved.
+        </p>
+
+        <!-- Actions: Go to Home & Go Back -->
+        <div class="error-404-actions">
+          <a href="index.html" class="btn-404-home">
+            <span>Go to Home</span>
+          </a>
+          <button
+            type="button"
+            class="btn-404-back"
+            onclick="
+              if (window.history.length > 1) {
+                window.history.back();
+              } else {
+                window.location.href = 'index.html';
+              }
+            "
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Go Back</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
