@@ -34,7 +34,508 @@
     <div id="header-placeholder"></div>
 
     <!-- Main Content -->
-    <main class="main-content"></main>
+    <main class="main-content">
+      <!-- Contact Banner Section -->
+      <section class="contact-banner-section">
+        <div class="contact-banner-container">
+          <div class="row align-items-center g-4 g-lg-0">
+            <!-- Left Column: Content -->
+            <div class="col-12 col-lg-5 col-xl-5 contact-banner-left-col">
+              <div class="contact-banner-content">
+                <!-- Badge / Subtitle -->
+                <div class="contact-banner-badge">
+                  <span class="contact-badge-line"></span>
+                  <span class="contact-badge-text">LET'S TALK</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="contact-banner-title">
+                  Contact Us<br />
+                  <span class="contact-title-highlight"
+                    >We’d Love to Hear<br />from You</span
+                  >
+                </h1>
+
+                <!-- Description -->
+                <p class="contact-banner-desc">
+                  Have a project in mind?Need creative solutions?We're here to
+                  help! Reach out to us and let’s create something amazing
+                  together.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Column: Visual Artwork / Image -->
+            <div class="col-12 col-lg-7 col-xl-7 contact-banner-right-col">
+              <div class="contact-banner-media-wrapper">
+                <img
+                  src="../assets/images/contact/contact-banner-image.webp"
+                  alt="Contact Us - Let's Create Together"
+                  class="contact-banner-img img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Details, Form & Map Section -->
+      <section class="contact-details-section">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <!-- Left Column: Info Content -->
+            <div class="col-12 col-lg-6">
+              <div class="contact-info-content">
+                <!-- Badge / Subtitle -->
+                <div class="contact-info-badge">
+                  <span class="contact-info-badge-line"></span>
+                  <span class="contact-info-badge-text">GET IN TOUCH</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h2 class="contact-info-title">
+                  We’re here to help<br />and answer your questions.
+                </h2>
+
+                <!-- Description -->
+                <p class="contact-info-desc">
+                  Whether you have a new project,need a quote,or just want to
+                  say hello - feel free to reach out.Our team will get back to
+                  you as soon as possible.
+                </p>
+
+                <!-- Contact Info Cards Grid (2x2) -->
+                <div class="row g-4 contact-info-grid">
+                  <!-- Phone Card -->
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-info-card">
+                      <div class="contact-info-icon-box icon-box-purple">
+                        <i class="fa-solid fa-phone"></i>
+                      </div>
+                      <div class="contact-info-card-text">
+                        <h3 class="contact-info-card-title">Phone</h3>
+                        <a href="#" class="contact-info-card-value"
+                          >+91 7010792745</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Email Card -->
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-info-card">
+                      <div class="contact-info-icon-box icon-box-pink">
+                        <i class="fa-regular fa-envelope"></i>
+                      </div>
+                      <div class="contact-info-card-text">
+                        <h3 class="contact-info-card-title">Email</h3>
+                        <a href="#" class="contact-info-card-value"
+                          >info@stackly.com</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Our Office Card -->
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-info-card">
+                      <div class="contact-info-icon-box icon-box-teal">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div class="contact-info-card-text">
+                        <h3 class="contact-info-card-title">Our Office</h3>
+                        <p class="contact-info-card-address">
+                          Tamilnadu<br />Salem - 636008
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Follow Us Card -->
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-info-card">
+                      <div class="contact-info-icon-box icon-box-blue">
+                        <i class="fa-solid fa-share-nodes"></i>
+                      </div>
+                      <div class="contact-info-card-text">
+                        <h3 class="contact-info-card-title">Follow Us</h3>
+                        <div class="contact-info-socials">
+                          <a
+                            href="#"
+                            class="contact-social-btn"
+                            aria-label="Instagram"
+                          >
+                            <i class="fa-brands fa-instagram"></i>
+                          </a>
+                          <a
+                            href="#"
+                            class="contact-social-btn"
+                            aria-label="LinkedIn"
+                          >
+                            <i class="fa-brands fa-linkedin-in"></i>
+                          </a>
+                          <a
+                            href="#"
+                            class="contact-social-btn"
+                            aria-label="Facebook"
+                          >
+                            <i class="fa-brands fa-facebook-f"></i>
+                          </a>
+                          <a
+                            href="#"
+                            class="contact-social-btn"
+                            aria-label="YouTube"
+                          >
+                            <i class="fa-brands fa-youtube"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <div class="col-12 col-lg-6">
+              <div class="contact-form-card">
+                <h2 class="contact-form-title">Send Us A Message</h2>
+                <p class="contact-form-subtitle">
+                  Fill out the form below and our team will get back to you
+                  soon.
+                </p>
+
+                <form id="contactForm" class="contact-form" novalidate>
+                  <div class="row g-3">
+                    <!-- Username / Name Input -->
+                    <div class="col-12 col-sm-6">
+                      <input
+                        type="text"
+                        class="form-control contact-form-input"
+                        id="contactUsername"
+                        name="username"
+                        placeholder="Your Name"
+                        maxlength="16"
+                        required
+                        autocomplete="off"
+                      />
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="col-12 col-sm-6">
+                      <input
+                        type="email"
+                        class="form-control contact-form-input"
+                        id="contactEmail"
+                        name="email"
+                        placeholder="Your Email"
+                        required
+                        autocomplete="off"
+                      />
+                    </div>
+
+                    <!-- Subject Input -->
+                    <div class="col-12">
+                      <input
+                        type="text"
+                        class="form-control contact-form-input"
+                        id="contactSubject"
+                        name="subject"
+                        placeholder="Subject"
+                        required
+                        autocomplete="off"
+                      />
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div class="col-12">
+                      <textarea
+                        class="form-control contact-form-input contact-form-textarea"
+                        id="contactMessage"
+                        name="message"
+                        rows="5"
+                        placeholder="Your Message"
+                        required
+                      ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-contact-submit">
+                        Send Message
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: Map Container -->
+          <div class="contact-map-wrapper">
+            <iframe
+              title="Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125026.04639739423!2d78.08375179246098!3d11.653818047970425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1ccf52cba0b%3A0xee9989007068ca47!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              class="contact-map-iframe"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Office & FAQs Section -->
+      <section class="contact-office-faq-section">
+        <div class="container">
+          <div class="row g-4 g-xl-5 align-items-center">
+            <!-- Left Column: Our Office -->
+            <div class="col-12 col-lg-6">
+              <div class="contact-office-card-wrapper">
+                <div class="row g-4 align-items-center">
+                  <!-- Office Image -->
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-office-media">
+                      <img
+                        src="../assets/images/contact/contact-our-office.webp"
+                        alt="Our Office - Creative Space"
+                        class="contact-office-img img-fluid"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Office Content -->
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-office-content">
+                      <div class="contact-office-badge">
+                        <span class="contact-badge-line"></span>
+                        <span class="contact-badge-text">Our Office</span>
+                      </div>
+                      <h2 class="contact-office-title">
+                        A Space Where Ideas Come to Life
+                      </h2>
+                      <p class="contact-office-desc">
+                        Our creative space is designed to inspire collaboration,
+                        creativity and innovation. Come visit us and see where
+                        great ideas turn into amazing work.
+                      </p>
+                      <a href="#" class="btn btn-outline-gallery">
+                        View Gallery
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Quick Answers & FAQ -->
+            <div class="col-12 col-lg-6">
+              <div class="contact-faq-wrapper">
+                <div class="contact-faq-badge">
+                  <span class="contact-badge-line"></span>
+                  <span class="contact-badge-text">Quick Answers</span>
+                </div>
+                <h2 class="contact-faq-title">Frequently Asked Questions</h2>
+
+                <div
+                  class="accordion contact-faq-accordion"
+                  id="contactFaqAccordion"
+                >
+                  <!-- FAQ Item 1 -->
+                  <div class="accordion-item contact-faq-item">
+                    <h3 class="accordion-header" id="contactFaqHeadingOne">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#contactFaqCollapseOne"
+                        aria-expanded="false"
+                        aria-controls="contactFaqCollapseOne"
+                      >
+                        What is the typical turnaround time for a project?
+                      </button>
+                    </h3>
+                    <div
+                      id="contactFaqCollapseOne"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="contactFaqHeadingOne"
+                      data-bs-parent="#contactFaqAccordion"
+                    >
+                      <div class="accordion-body">
+                        Turnaround times vary depending on the scope of the
+                        project. Typically, branding and identity packages take
+                        2 to 4 weeks, while full-scale website design and
+                        development takes 4 to 8 weeks.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ Item 2 -->
+                  <div class="accordion-item contact-faq-item">
+                    <h3 class="accordion-header" id="contactFaqHeadingTwo">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#contactFaqCollapseTwo"
+                        aria-expanded="false"
+                        aria-controls="contactFaqCollapseTwo"
+                      >
+                        Do you offer custom pricing for unique projects?
+                      </button>
+                    </h3>
+                    <div
+                      id="contactFaqCollapseTwo"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="contactFaqHeadingTwo"
+                      data-bs-parent="#contactFaqAccordion"
+                    >
+                      <div class="accordion-body">
+                        Yes, absolutely! While we have standard pricing plans,
+                        we also create tailored packages based on your specific
+                        requirements and goals.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ Item 3 -->
+                  <div class="accordion-item contact-faq-item">
+                    <h3 class="accordion-header" id="contactFaqHeadingThree">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#contactFaqCollapseThree"
+                        aria-expanded="false"
+                        aria-controls="contactFaqCollapseThree"
+                      >
+                        Can I request revisions?
+                      </button>
+                    </h3>
+                    <div
+                      id="contactFaqCollapseThree"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="contactFaqHeadingThree"
+                      data-bs-parent="#contactFaqAccordion"
+                    >
+                      <div class="accordion-body">
+                        Yes, all of our packages include multiple revision
+                        rounds to ensure the final product matches your exact
+                        expectations and brand vision.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ Item 4 -->
+                  <div class="accordion-item contact-faq-item">
+                    <h3 class="accordion-header" id="contactFaqHeadingFour">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#contactFaqCollapseFour"
+                        aria-expanded="false"
+                        aria-controls="contactFaqCollapseFour"
+                      >
+                        Do you provide ongoing support after the project is
+                        complete?
+                      </button>
+                    </h3>
+                    <div
+                      id="contactFaqCollapseFour"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="contactFaqHeadingFour"
+                      data-bs-parent="#contactFaqAccordion"
+                    >
+                      <div class="accordion-body">
+                        Yes, we provide ongoing maintenance, site updates,
+                        design support, and technical assistance to keep your
+                        platform running smoothly.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ Item 5 -->
+                  <div class="accordion-item contact-faq-item">
+                    <h3 class="accordion-header" id="contactFaqHeadingFive">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#contactFaqCollapseFive"
+                        aria-expanded="false"
+                        aria-controls="contactFaqCollapseFive"
+                      >
+                        What payment methods do you accept?
+                      </button>
+                    </h3>
+                    <div
+                      id="contactFaqCollapseFive"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="contactFaqHeadingFive"
+                      data-bs-parent="#contactFaqAccordion"
+                    >
+                      <div class="accordion-body">
+                        We accept credit cards, debit cards, direct bank wire
+                        transfers, and online payments with structured milestone
+                        schedules.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Have a Project in Mind / CTA Banner Section -->
+      <section class="contact-cta-section">
+        <!-- Decorative Ellipse Background Elements -->
+        <img
+          src="../assets/images/about/about-ellipse-1.webp"
+          alt=""
+          class="contact-cta-ellipse contact-cta-ellipse-left"
+          aria-hidden="true"
+        />
+        <img
+          src="../assets/images/about/about-ellipse-2.webp"
+          alt=""
+          class="contact-cta-ellipse contact-cta-ellipse-right"
+          aria-hidden="true"
+        />
+
+        <div class="container">
+          <div class="row align-items-center justify-content-between gy-4">
+            <!-- Left Column: Content -->
+            <div class="col-12 col-md-8 col-lg-7">
+              <div class="contact-cta-content">
+                <!-- Badge / Subtitle -->
+                <div class="contact-cta-badge">
+                  <span class="cta-badge-line"></span>
+                  <span class="cta-badge-text"
+                    >Let's Create Something Great</span
+                  >
+                </div>
+
+                <!-- Main Heading -->
+                <h2 class="contact-cta-title">Have a project in mind?</h2>
+
+                <!-- Description -->
+                <p class="contact-cta-desc">
+                  Let’s create something amazing together.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Column: CTA Button -->
+            <div class="col-12 col-md-4 col-lg-4 text-start">
+              <a href="#" class="btn btn-contact-cta"> Get In Touch </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Common Footer Placeholder -->
     <div id="footer-placeholder"></div>

@@ -24,9 +24,7 @@ body {
   color: #121212;
 }
 
-/* ==========================================================================
-   HEADER COMPONENT STYLES
-   ========================================================================== */
+/* HEADER COMPONENT STYLES */
 
 .site-header {
   background-color: var(--header-bg);
@@ -170,9 +168,7 @@ body {
   box-shadow: none;
 }
 
-/* ==========================================================================
-   HERO SECTION STYLES (FULL COVER)
-   ========================================================================== */
+/* HERO SECTION STYLES (FULL COVER) */
 
 .hero-section {
   position: relative;
@@ -362,9 +358,7 @@ body {
   transform: translateY(0);
 }
 
-/* ==========================================================================
-   RESPONSIVE ADJUSTMENTS
-   ========================================================================== */
+/* RESPONSIVE ADJUSTMENTS */
 
 @media (max-width: 991.98px) {
   .site-header .navbar-collapse {
@@ -397,7 +391,7 @@ body {
     text-align: center;
   }
 
-  /* Hero Mobile Styles */
+  /* Hero Tablet/Mobile Styles */
   .hero-section {
     padding: 30px 0;
     min-height: auto;
@@ -407,12 +401,20 @@ body {
     min-height: auto;
   }
 
+  .hero-bg-img {
+    width: 100%;
+    right: auto;
+    left: 0;
+    object-position: center top;
+  }
+
   .hero-bg-overlay {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.9) 60%,
-      rgba(255, 255, 255, 0.65) 100%
+      rgba(255, 255, 255, 0.97) 0%,
+      rgba(255, 255, 255, 0.92) 45%,
+      rgba(255, 255, 255, 0.72) 75%,
+      rgba(255, 255, 255, 0.45) 100%
     );
   }
 
@@ -439,9 +441,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   WHAT WE DO BEST / OUR SERVICES SECTION
-   ========================================================================== */
+/* WHAT WE DO BEST / OUR SERVICES SECTION */
 
 .what-we-do-section {
   padding: 100px 0 110px 0;
@@ -574,9 +574,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   FEATURED WORK / OUR PORTFOLIO SECTION
-   ========================================================================== */
+/* FEATURED WORK / OUR PORTFOLIO SECTION */
 
 .featured-work-section {
   padding: 100px 0;
@@ -760,9 +758,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   ABOUT US SECTION (HOME PAGE)
-   ========================================================================== */
+/* ABOUT US SECTION (HOME PAGE) */
 
 .home-about-section {
   padding: 90px 0;
@@ -956,9 +952,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   OUR PROCESS / HOW WE WORK SECTION (HOME PAGE)
-   ========================================================================== */
+/* OUR PROCESS / HOW WE WORK SECTION (HOME PAGE) */
 
 .home-process-section {
   padding: 100px 0;
@@ -1168,9 +1162,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   NUMBERS SPEAK / OUR ATTACHMENTS SECTION (HOME PAGE)
-   ========================================================================== */
+/* NUMBERS SPEAK / OUR ATTACHMENTS SECTION (HOME PAGE) */
 
 .home-stats-section {
   padding: 100px 0;
@@ -1404,9 +1396,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   TESTIMONIALS SECTION (HOME PAGE)
-   ========================================================================== */
+/* TESTIMONIALS SECTION (HOME PAGE) */
 
 .testimonials-section {
   padding: 100px 0;
@@ -1593,9 +1583,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   OUR TEAM SECTION (HOME PAGE)
-   ========================================================================== */
+/* OUR TEAM SECTION (HOME PAGE) */
 
 .team-section {
   padding: 100px 0;
@@ -1788,9 +1776,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   LATEST INSIGHTS / OUR BLOG SECTION (HOME PAGE)
-   ========================================================================== */
+/* LATEST INSIGHTS / OUR BLOG SECTION (HOME PAGE) */
 
 .home-blog-section {
   padding: 100px 0;
@@ -1979,9 +1965,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   SIMPLE AND TRANSPARENT PRICING SECTION
-   ========================================================================== */
+/* SIMPLE AND TRANSPARENT PRICING SECTION */
 
 .home-pricing-section {
   padding: 100px 0;
@@ -2274,9 +2258,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   GET IN TOUCH / CTA SECTION (HOME PAGE)
-   ========================================================================== */
+/* GET IN TOUCH / CTA SECTION (HOME PAGE) */
 
 .home-get-in-touch-section {
   position: relative;
@@ -2427,9 +2409,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   FOOTER COMPONENT STYLES
-   ========================================================================== */
+/* FOOTER COMPONENT STYLES */
 
 .site-footer {
   background-color: #142b69;
@@ -2693,9 +2673,7 @@ body {
   }
 }
 
-/* ==========================================================================
-   FLOATING SCROLL TO TOP BUTTON
-   ========================================================================== */
+/* FLOATING SCROLL TO TOP BUTTON */
 
 .scroll-to-top-btn {
   position: fixed;

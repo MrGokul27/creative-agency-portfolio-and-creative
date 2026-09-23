@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCounterAnimation();
   initPortfolioFilters();
   initBlogFeatures();
+  initContactForm();
 });
 
 function initScrollFeatures() {
@@ -356,6 +357,100 @@ function initBlogFeatures() {
         setTimeout(() => {
           btn.textContent = originalText;
           btn.style.backgroundColor = "";
+        }, 3000);
+      }
+    });
+  }
+}
+
+/**
+ * Initializes Contact Form interactions & strict input validation:
+ * Prevents user from typing numbers or special characters in the username/name field.
+ */
+function initContactForm() {
+  const nameInput = document.getElementById("contactUsername");
+  if (nameInput) {
+    // 1. Prevent typing of non-alphabet and non-space characters via keydown
+    nameInput.addEventListener("keydown", (e) => {
+      // Allow navigation and system control keys
+      if (
+        e.key === "Backspace" ||
+        e.key === "Delete" ||
+        e.key === "Tab" ||
+        e.key === "Escape" ||
+        e.key === "Enter" ||
+        e.key === "ArrowLeft" ||
+        e.key === "ArrowRight" ||
+        e.key === "ArrowUp" ||
+        e.key === "ArrowDown" ||
+        e.key === "Home" ||
+        e.key === "End" ||
+        // Allow copy/cut/paste/select-all/undo shortcuts (Ctrl or Cmd + A/C/V/X/Z)
+        ((e.ctrlKey || e.metaKey) &&
+          ["a", "c", "v", "x", "z"].includes(e.key.toLowerCase()))
+      ) {
+        return;
+      }
+
+      // If single printable character that is NOT an English letter or space, block keypress completely
+      if (e.key.length === 1 && !/^[a-zA-Z\s]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    // 2. Prevent insertion on modern mobile/virtual keyboards (beforeinput)
+    nameInput.addEventListener("beforeinput", (e) => {
+      if (
+        e.data &&
+        e.inputType !== "deleteContentBackward" &&
+        e.inputType !== "deleteContentForward"
+      ) {
+        if (!/^[a-zA-Z\s]+$/.test(e.data)) {
+          e.preventDefault();
+        }
+      }
+    });
+
+    // 3. Fallback sanitizer for drag-and-drop, browser autofill, or IME composition
+    nameInput.addEventListener("input", () => {
+      const sanitized = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
+      if (nameInput.value !== sanitized) {
+        nameInput.value = sanitized;
+      }
+    });
+
+    // 4. Handle paste event specifically to filter out forbidden characters
+    nameInput.addEventListener("paste", (e) => {
+      e.preventDefault();
+      const pasteData =
+        (e.clipboardData || window.clipboardData)?.getData("text") || "";
+      const sanitized = pasteData.replace(/[^a-zA-Z\s]/g, "");
+      const start = nameInput.selectionStart;
+      const end = nameInput.selectionEnd;
+      const currentValue = nameInput.value;
+      nameInput.value =
+        currentValue.substring(0, start) +
+        sanitized +
+        currentValue.substring(end);
+      const newPos = start + sanitized.length;
+      nameInput.setSelectionRange(newPos, newPos);
+    });
+  }
+
+  // Handle contact form submission
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector(".btn-contact-submit");
+      if (submitBtn) {
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Message Sent Successfully!";
+        submitBtn.style.backgroundColor = "#16a34a";
+        contactForm.reset();
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.backgroundColor = "";
         }, 3000);
       }
     });
