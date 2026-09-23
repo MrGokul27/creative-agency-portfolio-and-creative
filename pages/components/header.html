@@ -26,6 +26,32 @@
 
       <!-- Navigation & Action Items -->
       <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Mobile Menu Header -->
+        <div
+          class="mobile-menu-header d-flex align-items-center justify-content-between d-lg-none"
+        >
+          <a
+            class="navbar-brand header-logo-link"
+            href="#"
+            data-nav-link="home"
+          >
+            <img
+              src=""
+              alt="Stackly Logo"
+              class="header-logo-img"
+              id="mobile-menu-logo"
+            />
+          </a>
+          <button
+            class="mobile-menu-close"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-label="Close navigation"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
         <!-- Navigation Menu -->
         <ul class="navbar-nav mx-auto header-nav">
           <li class="nav-item">
@@ -61,9 +87,7 @@
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <a href="#" data-nav-link="contact" class="btn header-btn"
-            >Get In Touch</a
-          >
+          <a href="#" class="btn header-btn">Get In Touch</a>
         </div>
       </div>
     </div>

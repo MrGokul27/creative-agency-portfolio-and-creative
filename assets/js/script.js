@@ -131,10 +131,11 @@ function setupFooterAssets(basePath) {
  */
 function setupHeaderLinks(basePath) {
   // Update Logo Image
-  const logoImg = document.getElementById("header-logo");
-  if (logoImg) {
-    logoImg.src = `${basePath}/assets/images/stackly-logo.webp`;
-  }
+  document
+    .querySelectorAll("#header-logo, #mobile-menu-logo")
+    .forEach((img) => {
+      img.src = `${basePath}/assets/images/stackly-logo.webp`;
+    });
 
   // Define route mapping
   const routeMap = {
