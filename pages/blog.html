@@ -41,7 +41,7 @@
           <div class="row align-items-center g-4 g-lg-5">
             <!-- Left Column: Content -->
             <div class="col-12 col-lg-6 blog-banner-left-col">
-              <div class="blog-banner-content">
+              <div class="blog-banner-content reveal" data-reveal="fade-right">
                 <!-- Subtitle / Badge -->
                 <span class="blog-banner-badge">OUR BLOG</span>
 
@@ -64,7 +64,10 @@
 
             <!-- Right Column: Visual Artwork -->
             <div class="col-12 col-lg-6 blog-banner-right-col">
-              <div class="blog-banner-image-wrapper">
+              <div
+                class="blog-banner-image-wrapper reveal"
+                data-reveal="fade-left"
+              >
                 <img
                   src="../assets/images/blog/blog-banner-image.webp"
                   alt="Ideas, Insights and Creative Inspiration - Stackly Blog"
@@ -81,7 +84,8 @@
         <div class="container">
           <!-- Section Header -->
           <div
-            class="blog-listing-header d-flex align-items-center justify-content-between"
+            class="blog-listing-header d-flex align-items-center justify-content-between reveal"
+            data-reveal="fade-up"
           >
             <h2 class="blog-listing-title">Latest Posts</h2>
             <a href="#" class="blog-view-all-link">
@@ -94,9 +98,12 @@
             <!-- Left Main Column (Posts Grid, Featured Box, Pagination) -->
             <div class="col-12 col-lg-8">
               <!-- 6 Blog Posts Grid -->
-              <div class="row g-3 g-md-4">
+              <div class="row g-3 g-md-4" data-reveal-stagger="100">
                 <!-- Post Card 1 -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div
+                  class="col-12 col-sm-6 col-md-4 reveal"
+                  data-reveal="fade-up"
+                >
                   <article class="blog-card">
                     <div class="blog-card-img-wrap">
                       <img
@@ -126,7 +133,10 @@
                 </div>
 
                 <!-- Post Card 2 -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div
+                  class="col-12 col-sm-6 col-md-4 reveal"
+                  data-reveal="fade-up"
+                >
                   <article class="blog-card">
                     <div class="blog-card-img-wrap">
                       <img
@@ -158,7 +168,10 @@
                 </div>
 
                 <!-- Post Card 3 -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div
+                  class="col-12 col-sm-6 col-md-4 reveal"
+                  data-reveal="fade-up"
+                >
                   <article class="blog-card">
                     <div class="blog-card-img-wrap">
                       <img
@@ -190,7 +203,10 @@
                 </div>
 
                 <!-- Post Card 4 -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div
+                  class="col-12 col-sm-6 col-md-4 reveal"
+                  data-reveal="fade-up"
+                >
                   <article class="blog-card">
                     <div class="blog-card-img-wrap">
                       <img
@@ -220,7 +236,10 @@
                 </div>
 
                 <!-- Post Card 5 -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div
+                  class="col-12 col-sm-6 col-md-4 reveal"
+                  data-reveal="fade-up"
+                >
                   <article class="blog-card">
                     <div class="blog-card-img-wrap">
                       <img
@@ -250,7 +269,10 @@
                 </div>
 
                 <!-- Post Card 6 -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div
+                  class="col-12 col-sm-6 col-md-4 reveal"
+                  data-reveal="fade-up"
+                >
                   <article class="blog-card">
                     <div class="blog-card-img-wrap">
                       <img
@@ -283,7 +305,7 @@
               </div>
 
               <!-- Featured Box Banner -->
-              <div class="blog-featured-card">
+              <div class="blog-featured-card reveal" data-reveal="fade-up">
                 <div class="row align-items-center g-4">
                   <!-- Left Image -->
                   <div class="col-12 col-md-6">
@@ -315,7 +337,7 @@
               </div>
 
               <!-- Pagination Navigation -->
-              <div class="blog-pagination-wrapper">
+              <div class="blog-pagination-wrapper reveal" data-reveal="fade-up">
                 <nav aria-label="Blog pagination">
                   <ul class="blog-pagination-list">
                     <li>
@@ -357,7 +379,10 @@
             <div class="col-12 col-lg-4">
               <aside class="blog-sidebar">
                 <!-- Search Box Widget -->
-                <div class="blog-sidebar-widget blog-search-widget">
+                <div
+                  class="blog-sidebar-widget blog-search-widget reveal"
+                  data-reveal="fade-left"
+                >
                   <form
                     class="blog-search-form"
                     onsubmit="event.preventDefault()"
@@ -384,7 +409,11 @@
                 </div>
 
                 <!-- Categories Widget -->
-                <div class="blog-sidebar-widget blog-categories-widget">
+                <div
+                  class="blog-sidebar-widget blog-categories-widget reveal"
+                  data-reveal="fade-left"
+                  data-reveal-delay="100"
+                >
                   <ul class="blog-categories-list">
                     <li class="blog-category-item">
                       <a href="#" class="blog-category-link">
@@ -474,7 +503,11 @@
                 </div>
 
                 <!-- Recent Posts Widget -->
-                <div class="blog-sidebar-widget blog-recent-posts-widget">
+                <div
+                  class="blog-sidebar-widget blog-recent-posts-widget reveal"
+                  data-reveal="fade-left"
+                  data-reveal-delay="200"
+                >
                   <h3 class="blog-sidebar-title">Recent Posts</h3>
                   <div class="recent-posts-list">
                     <!-- Post 1 -->
@@ -572,7 +605,7 @@
       <!-- Stay Updated / Newsletter Section -->
       <section class="blog-newsletter-section">
         <div class="container">
-          <div class="blog-newsletter-card">
+          <div class="blog-newsletter-card reveal" data-reveal="fade-up">
             <!-- Decorative Swirl Line (Right Side) -->
             <svg
               class="blog-newsletter-swirl-svg"

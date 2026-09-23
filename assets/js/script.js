@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadFooter();
   initScrollFeatures();
+  initScrollReveal();
   initCounterAnimation();
   initPortfolioFilters();
   initBlogFeatures();
@@ -97,10 +98,12 @@ async function loadFooter() {
 
     setupFooterAssets(basePath);
     setupHeaderLinks(basePath);
+    initScrollReveal();
   } catch (error) {
     console.warn("Dynamic footer fetch encountered an issue:", error);
     setupFooterAssets(basePath);
     setupHeaderLinks(basePath);
+    initScrollReveal();
   }
 }
 
@@ -620,6 +623,7 @@ function initPreloader() {
       setTimeout(() => {
         preloader.classList.add("preloader-loaded");
         document.body.classList.remove("preloader-active");
+        initScrollReveal();
 
         // Completely hide preloader after shutters finish sliding
         setTimeout(() => {
@@ -631,4 +635,71 @@ function initPreloader() {
   }
 
   requestAnimationFrame(updatePreloader);
+}
+
+/**
+ * Global Scroll Reveal Animation Engine
+ * Observes elements with .reveal or [data-reveal]
+ * and triggers high-performance GPU animations on scroll into viewport.
+ */
+let scrollRevealObserver = null;
+
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll(
+    ".reveal:not(.is-revealed), [data-reveal]:not(.is-revealed)",
+  );
+  if (!revealElements.length) return;
+
+  // Process stagger containers
+  document.querySelectorAll("[data-reveal-stagger]").forEach((container) => {
+    const step = parseInt(
+      container.getAttribute("data-reveal-stagger") || "100",
+      10,
+    );
+    const children = Array.from(container.children).filter(
+      (child) =>
+        child.classList.contains("reveal") || child.hasAttribute("data-reveal"),
+    );
+    children.forEach((child, idx) => {
+      if (!child.hasAttribute("data-reveal-delay")) {
+        child.style.transitionDelay = `${idx * step}ms`;
+      }
+    });
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach((el) => el.classList.add("is-revealed"));
+    return;
+  }
+
+  if (!scrollRevealObserver) {
+    scrollRevealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08,
+      },
+    );
+  }
+
+  revealElements.forEach((el) => {
+    const delay = el.getAttribute("data-reveal-delay");
+    if (delay && !el.style.transitionDelay) {
+      el.style.transitionDelay = `${delay}ms`;
+    }
+    const duration = el.getAttribute("data-reveal-duration");
+    if (duration && !el.style.transitionDuration) {
+      el.style.transitionDuration = `${duration}ms`;
+    }
+
+    scrollRevealObserver.observe(el);
+  });
 }
