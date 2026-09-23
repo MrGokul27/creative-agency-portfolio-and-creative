@@ -386,8 +386,12 @@
               <i class="fa-solid fa-magnifying-glass topbar-search-icon"></i>
               <input
                 type="text"
+                id="dashboardGlobalSearch"
+                name="search"
                 class="topbar-search-input"
                 placeholder="Search campaigns, deliverables, assets, designers..."
+                autocomplete="off"
+                aria-label="Search campaigns, deliverables, assets, designers"
               />
             </div>
           </div>
@@ -626,10 +630,14 @@
                       <div class="dash-card-actions">
                         <input
                           type="text"
+                          id="filterClientsInput"
+                          name="filterClients"
                           class="form-control form-control-sm table-search-filter"
                           placeholder="Filter clients..."
                           data-target-table="adminClientTable"
                           style="max-width: 180px"
+                          autocomplete="off"
+                          aria-label="Filter clients"
                         />
                       </div>
                     </div>
@@ -2461,39 +2469,56 @@
                 </h4>
                 <form id="guestProposalForm" class="row g-3">
                   <div class="col-12 col-md-6">
-                    <label class="form-label fw-semibold">Your Name</label>
+                    <label for="proposalName" class="form-label fw-semibold"
+                      >Your Name</label
+                    >
                     <input
                       type="text"
+                      id="proposalName"
+                      name="name"
                       class="form-control"
                       placeholder="e.g. Alexandra Smith"
+                      autocomplete="name"
                       required
                     />
                   </div>
                   <div class="col-12 col-md-6">
-                    <label class="form-label fw-semibold"
+                    <label for="proposalCompany" class="form-label fw-semibold"
                       >Company / Brand</label
                     >
                     <input
                       type="text"
+                      id="proposalCompany"
+                      name="organization"
                       class="form-control"
                       placeholder="e.g. Apex Innovations"
+                      autocomplete="organization"
                       required
                     />
                   </div>
                   <div class="col-12 col-md-6">
-                    <label class="form-label fw-semibold">Work Email</label>
+                    <label for="proposalEmail" class="form-label fw-semibold"
+                      >Work Email</label
+                    >
                     <input
                       type="email"
+                      id="proposalEmail"
+                      name="email"
                       class="form-control"
                       placeholder="alex@apex.com"
+                      autocomplete="email"
                       required
                     />
                   </div>
                   <div class="col-12 col-md-6">
-                    <label class="form-label fw-semibold"
+                    <label for="proposalService" class="form-label fw-semibold"
                       >Primary Creative Need</label
                     >
-                    <select class="form-select">
+                    <select
+                      id="proposalService"
+                      name="service"
+                      class="form-select"
+                    >
                       <option>Brand Identity & Strategy</option>
                       <option>3D Motion & CGI Visuals</option>
                       <option>UI/UX & Product Design</option>
@@ -2501,10 +2526,12 @@
                     </select>
                   </div>
                   <div class="col-12">
-                    <label class="form-label fw-semibold"
+                    <label for="proposalBrief" class="form-label fw-semibold"
                       >Project Brief & Estimated Timeline</label
                     >
                     <textarea
+                      id="proposalBrief"
+                      name="brief"
                       class="form-control"
                       rows="4"
                       placeholder="Tell us about your project vision, deliverables needed, and timeline goals..."

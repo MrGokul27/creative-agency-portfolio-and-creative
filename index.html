@@ -1014,9 +1014,11 @@
                   <div class="col-12 col-sm-6">
                     <input
                       type="text"
+                      id="homeName"
+                      name="name"
                       class="form-control get-in-touch-input"
                       placeholder="Name"
-                      autocomplete="off"
+                      autocomplete="name"
                       maxlength="16"
                       required
                     />
@@ -1024,14 +1026,19 @@
                   <div class="col-12 col-sm-6">
                     <input
                       type="email"
+                      id="homeEmail"
+                      name="email"
                       class="form-control get-in-touch-input"
                       placeholder="Email"
+                      autocomplete="email"
                       required
                     />
                   </div>
                 </div>
                 <div class="mb-3">
                   <textarea
+                    id="homeMessage"
+                    name="message"
                     class="form-control get-in-touch-input get-in-touch-textarea"
                     rows="3"
                     placeholder="Message"

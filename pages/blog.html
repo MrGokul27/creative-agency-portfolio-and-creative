@@ -365,9 +365,12 @@
                     <div class="blog-search-box">
                       <input
                         type="text"
+                        id="blogSearchInput"
+                        name="search"
                         class="blog-search-input"
                         placeholder="Search Blog"
                         aria-label="Search Blog"
+                        autocomplete="off"
                       />
                       <button
                         type="submit"
@@ -658,10 +661,13 @@
                     <div class="blog-newsletter-input-group">
                       <input
                         type="email"
+                        id="blogNewsletterEmail"
+                        name="email"
                         class="blog-newsletter-input"
                         placeholder="Enter Mail Address"
                         required
                         aria-label="Enter Mail Address"
+                        autocomplete="email"
                       />
                       <button type="submit" class="btn blog-newsletter-btn">
                         Subscribe
