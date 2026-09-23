@@ -46,6 +46,10 @@ body.auth-body {
   flex-direction: column;
 }
 
+input[type="password"]::-ms-reveal {
+  display: none;
+}
+
 /* 1. AUTH TOP HEADER BAR */
 .auth-header-bar {
   background-color: #ffffff;

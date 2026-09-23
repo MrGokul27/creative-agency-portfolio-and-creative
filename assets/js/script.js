@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initPortfolioFilters();
   initBlogFeatures();
   initContactForm();
+  initHomeGetInTouchForm();
+  initFooterForm();
   initEmptyLinksRedirect();
 });
 
@@ -347,119 +349,163 @@ function initBlogFeatures() {
     });
   });
 
-  // Blog newsletter subscription feedback
+  // Blog newsletter subscription redirect to 404 page
   const newsletterForm = document.querySelector(".blog-newsletter-form");
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const input = newsletterForm.querySelector(".blog-newsletter-input");
-      const btn = newsletterForm.querySelector(".blog-newsletter-btn");
-      if (input && input.value) {
-        const originalText = btn.textContent;
-        btn.textContent = "Subscribed!";
-        btn.style.backgroundColor = "#16a34a";
-        input.value = "";
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.backgroundColor = "";
-        }, 3000);
-      }
+      window.location.href = get404Path();
     });
   }
 }
 
 /**
- * Initializes Contact Form interactions & strict input validation:
- * Prevents user from typing numbers or special characters in the username/name field.
+ * Returns the appropriate relative path to 404.html based on current page location
+ */
+function get404Path() {
+  const isInPages =
+    document.body.dataset.inPages === "true" ||
+    window.location.pathname.replace(/\\/g, "/").includes("/pages/");
+  return isInPages ? "../404.html" : "404.html";
+}
+
+/**
+ * Restricts an input to alphabetic characters only (A-Z, a-z),
+ * strictly blocking spaces, numbers, and special characters from being typed or entered.
+ */
+function restrictToLettersOnly(inputElement) {
+  if (!inputElement) return;
+
+  // 1. Prevent typing of non-alphabet characters and spaces via keydown
+  inputElement.addEventListener("keydown", (e) => {
+    // Explicitly block space
+    if (e.key === " " || e.code === "Space" || e.keyCode === 32) {
+      e.preventDefault();
+      return;
+    }
+
+    // Allow navigation, deletion, and system control keys
+    if (
+      e.key === "Backspace" ||
+      e.key === "Delete" ||
+      e.key === "Tab" ||
+      e.key === "Escape" ||
+      e.key === "Enter" ||
+      e.key === "ArrowLeft" ||
+      e.key === "ArrowRight" ||
+      e.key === "ArrowUp" ||
+      e.key === "ArrowDown" ||
+      e.key === "Home" ||
+      e.key === "End" ||
+      // Allow copy/cut/paste/select-all/undo shortcuts (Ctrl or Cmd + A/C/V/X/Z)
+      ((e.ctrlKey || e.metaKey) &&
+        ["a", "c", "v", "x", "z"].includes(e.key.toLowerCase()))
+    ) {
+      return;
+    }
+
+    // If single printable character that is NOT an English letter, block keypress completely
+    if (e.key.length === 1 && !/^[a-zA-Z]$/.test(e.key)) {
+      e.preventDefault();
+    }
+  });
+
+  // 2. Prevent insertion on modern mobile/virtual keyboards (beforeinput)
+  inputElement.addEventListener("beforeinput", (e) => {
+    if (
+      e.data &&
+      e.inputType !== "deleteContentBackward" &&
+      e.inputType !== "deleteContentForward"
+    ) {
+      if (!/^[a-zA-Z]+$/.test(e.data)) {
+        e.preventDefault();
+      }
+    }
+  });
+
+  // 3. Fallback sanitizer for drag-and-drop, browser autofill, or IME composition
+  inputElement.addEventListener("input", () => {
+    const sanitized = inputElement.value.replace(/[^a-zA-Z]/g, "");
+    if (inputElement.value !== sanitized) {
+      inputElement.value = sanitized;
+    }
+  });
+
+  // 4. Handle paste event specifically to filter out forbidden characters & spaces
+  inputElement.addEventListener("paste", (e) => {
+    e.preventDefault();
+    const pasteData =
+      (e.clipboardData || window.clipboardData)?.getData("text") || "";
+    const sanitized = pasteData.replace(/[^a-zA-Z]/g, "");
+    const start = inputElement.selectionStart;
+    const end = inputElement.selectionEnd;
+    const currentValue = inputElement.value;
+    inputElement.value =
+      currentValue.substring(0, start) +
+      sanitized +
+      currentValue.substring(end);
+    const newPos = start + sanitized.length;
+    inputElement.setSelectionRange(newPos, newPos);
+  });
+}
+
+/**
+ * Initializes Contact Form:
+ * - Prevents user from typing numbers, special characters, or space in the name field.
+ * - Redirects to 404 page upon form submission.
  */
 function initContactForm() {
   const nameInput = document.getElementById("contactUsername");
   if (nameInput) {
-    // 1. Prevent typing of non-alphabet and non-space characters via keydown
-    nameInput.addEventListener("keydown", (e) => {
-      // Allow navigation and system control keys
-      if (
-        e.key === "Backspace" ||
-        e.key === "Delete" ||
-        e.key === "Tab" ||
-        e.key === "Escape" ||
-        e.key === "Enter" ||
-        e.key === "ArrowLeft" ||
-        e.key === "ArrowRight" ||
-        e.key === "ArrowUp" ||
-        e.key === "ArrowDown" ||
-        e.key === "Home" ||
-        e.key === "End" ||
-        // Allow copy/cut/paste/select-all/undo shortcuts (Ctrl or Cmd + A/C/V/X/Z)
-        ((e.ctrlKey || e.metaKey) &&
-          ["a", "c", "v", "x", "z"].includes(e.key.toLowerCase()))
-      ) {
-        return;
-      }
-
-      // If single printable character that is NOT an English letter or space, block keypress completely
-      if (e.key.length === 1 && !/^[a-zA-Z\s]$/.test(e.key)) {
-        e.preventDefault();
-      }
-    });
-
-    // 2. Prevent insertion on modern mobile/virtual keyboards (beforeinput)
-    nameInput.addEventListener("beforeinput", (e) => {
-      if (
-        e.data &&
-        e.inputType !== "deleteContentBackward" &&
-        e.inputType !== "deleteContentForward"
-      ) {
-        if (!/^[a-zA-Z\s]+$/.test(e.data)) {
-          e.preventDefault();
-        }
-      }
-    });
-
-    // 3. Fallback sanitizer for drag-and-drop, browser autofill, or IME composition
-    nameInput.addEventListener("input", () => {
-      const sanitized = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
-      if (nameInput.value !== sanitized) {
-        nameInput.value = sanitized;
-      }
-    });
-
-    // 4. Handle paste event specifically to filter out forbidden characters
-    nameInput.addEventListener("paste", (e) => {
-      e.preventDefault();
-      const pasteData =
-        (e.clipboardData || window.clipboardData)?.getData("text") || "";
-      const sanitized = pasteData.replace(/[^a-zA-Z\s]/g, "");
-      const start = nameInput.selectionStart;
-      const end = nameInput.selectionEnd;
-      const currentValue = nameInput.value;
-      nameInput.value =
-        currentValue.substring(0, start) +
-        sanitized +
-        currentValue.substring(end);
-      const newPos = start + sanitized.length;
-      nameInput.setSelectionRange(newPos, newPos);
-    });
+    restrictToLettersOnly(nameInput);
   }
 
-  // Handle contact form submission
+  // Handle contact form submission -> redirect to 404 page if valid
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const submitBtn = contactForm.querySelector(".btn-contact-submit");
-      if (submitBtn) {
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = "Message Sent Successfully!";
-        submitBtn.style.backgroundColor = "#16a34a";
-        contactForm.reset();
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.style.backgroundColor = "";
-        }, 3000);
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
       }
+      window.location.href = get404Path();
     });
   }
+}
+
+/**
+ * Initializes Home Page Get In Touch / Call To Action Section form:
+ * - Prevents user from typing numbers, special characters, or space in the name field.
+ * - Redirects to 404 page upon form submission.
+ */
+function initHomeGetInTouchForm() {
+  const getInTouchForm = document.querySelector(".get-in-touch-form");
+  if (!getInTouchForm) return;
+
+  const nameInput = getInTouchForm.querySelector('input[type="text"]');
+  if (nameInput) {
+    restrictToLettersOnly(nameInput);
+  }
+
+  getInTouchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    window.location.href = get404Path();
+  });
+}
+
+/**
+ * Initializes Footer Newsletter Subscribe Form:
+ * - Redirects to 404 page upon form submission.
+ */
+function initFooterForm() {
+  document.addEventListener("submit", (e) => {
+    const footerForm = e.target.closest(".footer-newsletter-form");
+    if (footerForm) {
+      e.preventDefault();
+      window.location.href = get404Path();
+    }
+  });
 }
 
 /**
@@ -494,12 +540,7 @@ function initEmptyLinksRedirect() {
 
     if (isDummyLink) {
       e.preventDefault();
-      const isInPages =
-        document.body.dataset.inPages === "true" ||
-        window.location.pathname.replace(/\\/g, "/").includes("/pages/");
-
-      const target404 = isInPages ? "../404.html" : "404.html";
-      window.location.href = target404;
+      window.location.href = get404Path();
     }
   });
 }

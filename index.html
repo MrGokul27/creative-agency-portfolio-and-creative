@@ -1009,13 +1009,15 @@
 
             <!-- Right Form Column -->
             <div class="col-12 col-lg-6">
-              <form class="get-in-touch-form" onsubmit="event.preventDefault()">
+              <form class="get-in-touch-form">
                 <div class="row g-3 mb-3">
                   <div class="col-12 col-sm-6">
                     <input
                       type="text"
                       class="form-control get-in-touch-input"
                       placeholder="Name"
+                      autocomplete="off"
+                      maxlength="16"
                       required
                     />
                   </div>
