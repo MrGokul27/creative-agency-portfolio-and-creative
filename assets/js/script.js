@@ -146,6 +146,7 @@ function setupHeaderLinks(basePath) {
     blog: `${basePath}/pages/blog.html`,
     pricing: `${basePath}/pages/pricing.html`,
     contact: `${basePath}/pages/contact.html`,
+    login: `${basePath}/pages/login.html`,
   };
 
   // Assign hrefs to all data-nav-link elements

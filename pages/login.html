@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Stackly Creative Agency</title>
+
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6 Latest -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Custom Authentication Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+  <body class="auth-body">
+    <!-- Top Authentication Navigation Bar -->
+    <header class="auth-header-bar">
+      <div class="auth-header-container">
+        <!-- Brand Logo -->
+        <a href="../index.html" class="auth-header-logo-link">
+          <img
+            src="../assets/images/stackly-logo.webp"
+            alt="Stackly Logo"
+            class="auth-header-logo-img"
+          />
+        </a>
+
+        <!-- Header Nav Utility Items -->
+        <div class="auth-header-nav-items">
+          <a href="#" class="auth-header-item" title="Security Information">
+            <i class="fa-solid fa-lock"></i>
+            <span>Security</span>
+          </a>
+          <a href="#" class="auth-header-item" title="Help & Support Center">
+            <i class="fa-solid fa-globe"></i>
+            <span>Help Center</span>
+          </a>
+          <div class="auth-header-item" title="Language Selector">
+            <i class="fa-solid fa-globe"></i>
+            <span>EN</span>
+            <i
+              class="fa-solid fa-chevron-down ms-1"
+              style="font-size: 10px"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Auth Hero Layout (Split Left & Right) -->
+    <main class="auth-main-wrapper">
+      <!-- Left Panel: Content, Typography & Creative Artwork -->
+      <section class="auth-left-panel">
+        <div>
+          <!-- Back Button Navigation -->
+          <div class="auth-back-button-wrapper">
+            <a
+              href="../index.html"
+              class="auth-back-arrow"
+              title="Return to Home"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- Hero Text Presentation -->
+          <div class="auth-left-text-content">
+            <span class="auth-agency-badge">CREATIVE AGENCY</span>
+            <h1 class="auth-main-heading">
+              Turn Your Ideas<br />
+              Into Impactful<br />
+              <span class="auth-gradient-text">Experiences</span>
+            </h1>
+            <p class="auth-sub-description">
+              We are a creative agency that turns bold ideas into beautiful
+              brands,digital experiences and meaningful stories.
+            </p>
+          </div>
+        </div>
+
+        <!-- Left Artwork Composition (Rotated Oval + Collage Image) -->
+        <div class="auth-left-artwork-group">
+          <!-- Rotated Oval Badge -->
+          <div class="auth-creativity-oval">
+            <span class="auth-oval-caption">
+              Creativity<br />
+              drives<br />
+              results
+            </span>
+          </div>
+
+          <!-- Creative Visual Collage Image -->
+          <div class="auth-collage-image-box">
+            <img
+              src="../assets/images/auth/login-page-leftside-image.webp"
+              alt="Creative Inspiration and Photography"
+              class="auth-collage-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: Architecture Glass Skyscraper Background -->
+      <section class="auth-right-panel" aria-hidden="true">
+        <img
+          src="../assets/images/auth/login-page-rightside-image.webp"
+          alt="Modern Architecture"
+          class="auth-right-building-img"
+        />
+      </section>
+
+      <!-- Floating Centered Login Card -->
+      <div class="auth-card-wrapper">
+        <div class="auth-card">
+          <!-- Top House/Pentagon Icon -->
+          <div class="auth-card-header">
+            <div class="auth-card-icon-bubble">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"
+                />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <h2 class="auth-card-title">Login to Your Account</h2>
+            <p class="auth-card-subtitle">
+              Login to your account and continue your creative journey with us.
+            </p>
+          </div>
+
+          <!-- Alert Container for Feedback & Validation Messages -->
+          <div id="authAlertBox" class="auth-alert-box" role="alert"></div>
+
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form" novalidate>
+            <!-- 1. Role Selection Field (Required) -->
+            <div class="auth-field-group">
+              <label for="authRole" class="auth-field-label">
+                Role <span class="auth-required-marker">*</span>
+              </label>
+              <div class="auth-input-wrapper">
+                <span class="auth-input-icon-left">
+                  <i class="fa-solid fa-user-shield"></i>
+                </span>
+                <select
+                  id="authRole"
+                  name="role"
+                  class="auth-form-control auth-select-control"
+                  required
+                >
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="client">Client</option>
+                  <option value="agency_admin">Agency Admin</option>
+                  <option value="creative_designer">Creative Designer</option>
+                  <option value="project_manager">Project Manager</option>
+                  <option value="guest">Guest / Viewer</option>
+                </select>
+                <span class="auth-select-arrow">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </span>
+              </div>
+              <span id="roleErrorMsg" class="auth-field-error-msg"></span>
+            </div>
+
+            <!-- 2. Email Address / Customer ID Field (Required) -->
+            <div class="auth-field-group">
+              <label for="authEmail" class="auth-field-label">
+                Email Address/Customer ID
+                <span class="auth-required-marker">*</span>
+              </label>
+              <div class="auth-input-wrapper">
+                <span class="auth-input-icon-left">
+                  <i class="fa-regular fa-envelope"></i>
+                </span>
+                <input
+                  type="text"
+                  id="authEmail"
+                  name="email"
+                  class="auth-form-control"
+                  placeholder="Enter your email/customer ID"
+                  required
+                  autocomplete="username"
+                />
+              </div>
+              <span id="emailErrorMsg" class="auth-field-error-msg"></span>
+            </div>
+
+            <!-- 3. Password Field with Weak Password Validation (Required) -->
+            <div class="auth-field-group">
+              <label for="authPassword" class="auth-field-label">
+                Password <span class="auth-required-marker">*</span>
+              </label>
+              <div class="auth-input-wrapper">
+                <span class="auth-input-icon-left">
+                  <i class="fa-solid fa-lock"></i>
+                </span>
+                <input
+                  type="password"
+                  id="authPassword"
+                  name="password"
+                  class="auth-form-control"
+                  placeholder="Enter your password"
+                  required
+                  autocomplete="current-password"
+                />
+                <button
+                  type="button"
+                  id="togglePasswordBtn"
+                  class="auth-password-toggle-btn"
+                  aria-label="Show password"
+                >
+                  <i id="pwdToggleIcon" class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+
+              <!-- Password Strength Meter (Dynamic on user typing) -->
+              <div
+                id="pwdStrengthWrap"
+                class="pwd-strength-meter-wrap"
+                style="display: none"
+              >
+                <div class="pwd-strength-bars">
+                  <div class="strength-bar-seg"></div>
+                  <div class="strength-bar-seg"></div>
+                  <div class="strength-bar-seg"></div>
+                  <div class="strength-bar-seg"></div>
+                </div>
+                <div class="pwd-strength-meta">
+                  <span id="pwdStrengthBadge" class="pwd-strength-badge"></span>
+                  <span
+                    id="pwdStrengthHint"
+                    class="pwd-strength-guidance"
+                  ></span>
+                </div>
+              </div>
+              <span id="passwordErrorMsg" class="auth-field-error-msg"></span>
+            </div>
+
+            <!-- 4. Remember Me Checkbox (Required) & Forgot Password Link -->
+            <div class="auth-options-row">
+              <label class="auth-checkbox-label" for="rememberMe">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  name="rememberMe"
+                  class="auth-custom-checkbox"
+                  required
+                />
+                <span
+                  >Remember me <span class="auth-required-marker">*</span></span
+                >
+              </label>
+              <a href="#" class="auth-forgot-link">Forgot Password?</a>
+            </div>
+            <span id="rememberErrorMsg" class="auth-field-error-msg"></span>
+
+            <!-- Submit Primary Button -->
+            <button type="submit" id="loginSubmitBtn" class="auth-submit-btn">
+              Login Securely
+            </button>
+          </form>
+
+          <!-- Divider: "or Continue with" -->
+          <div class="auth-or-divider">
+            <span>or Continue with</span>
+          </div>
+
+          <!-- Social / Biometric Authentication Grid -->
+          <div class="auth-providers-grid">
+            <!-- Google -->
+            <button
+              type="button"
+              class="auth-provider-item"
+              data-provider="Google"
+            >
+              <div class="auth-provider-btn">
+                <img
+                  src="../assets/images/auth/login-chrome.webp"
+                  alt="Google"
+                />
+              </div>
+              <span class="auth-provider-label">Google</span>
+            </button>
+
+            <!-- Apple -->
+            <button
+              type="button"
+              class="auth-provider-item"
+              data-provider="Apple"
+            >
+              <div class="auth-provider-btn">
+                <img src="../assets/images/auth/login-apple.webp" alt="Apple" />
+              </div>
+              <span class="auth-provider-label">Apple</span>
+            </button>
+
+            <!-- Fingerprint -->
+            <button
+              type="button"
+              class="auth-provider-item"
+              data-provider="Fingerprint"
+            >
+              <div class="auth-provider-btn">
+                <img
+                  src="../assets/images/auth/login-fingerprint.webp"
+                  alt="Fingerprint"
+                />
+              </div>
+              <span class="auth-provider-label">Fingerprint</span>
+            </button>
+
+            <!-- Face ID -->
+            <button
+              type="button"
+              class="auth-provider-item"
+              data-provider="Face ID"
+            >
+              <div class="auth-provider-btn">
+                <img
+                  src="../assets/images/auth/login-scan.webp"
+                  alt="Face ID"
+                />
+              </div>
+              <span class="auth-provider-label">Face ID</span>
+            </button>
+          </div>
+
+          <!-- Bottom Security Badge -->
+          <div class="auth-security-badge-footer">
+            <div class="auth-security-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <p class="auth-security-badge-text">
+              Your security is our top priority
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Custom Authentication Logic -->
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>
