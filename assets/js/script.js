@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  initPreloader();
   loadHeader();
   loadFooter();
   initScrollFeatures();
@@ -543,4 +544,91 @@ function initEmptyLinksRedirect() {
       window.location.href = get404Path();
     }
   });
+}
+
+/**
+ * Creative Agency Preloader for Home Page
+ * Delivers a sleek ~2s loading experience with smooth percentage counter and shutter reveal.
+ */
+function initPreloader() {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  const percentEl = document.getElementById("preloaderPercent");
+  const barEl = document.getElementById("preloaderBar");
+  const statusEl = document.getElementById("preloaderStatus");
+
+  // Lock body scroll during preloader
+  document.body.classList.add("preloader-active");
+
+  const totalDuration = 2000; // 2 seconds total loading duration
+  const startTime = performance.now();
+
+  const statusStages = [
+    { threshold: 0, text: "Initializing Creative Engine..." },
+    { threshold: 35, text: "Crafting Digital Experiences..." },
+    { threshold: 75, text: "Preparing Visual Showcase..." },
+    { threshold: 99, text: "Welcome to Stackly" },
+  ];
+
+  let currentStageIndex = 0;
+
+  function updatePreloader(currentTime) {
+    const elapsed = currentTime - startTime;
+    const rawProgress = Math.min(elapsed / (totalDuration * 0.92), 1);
+
+    // Smooth ease-out cubic curve
+    const easedProgress = 1 - Math.pow(1 - rawProgress, 3);
+    const currentPercent = Math.min(Math.round(easedProgress * 100), 100);
+
+    // Update percentage display
+    if (percentEl) {
+      percentEl.textContent = `${currentPercent}%`;
+    }
+
+    // Update progress bar width
+    if (barEl) {
+      barEl.style.width = `${currentPercent}%`;
+    }
+
+    // Update dynamic status message
+    for (let i = statusStages.length - 1; i >= 0; i--) {
+      if (currentPercent >= statusStages[i].threshold) {
+        if (currentStageIndex !== i && statusEl) {
+          currentStageIndex = i;
+          statusEl.style.opacity = "0";
+          statusEl.style.transform = "translateY(4px)";
+          setTimeout(() => {
+            statusEl.textContent = statusStages[i].text;
+            statusEl.style.opacity = "1";
+            statusEl.style.transform = "translateY(0)";
+          }, 150);
+        }
+        break;
+      }
+    }
+
+    if (rawProgress < 1) {
+      requestAnimationFrame(updatePreloader);
+    } else {
+      // Complete loading sequence
+      if (percentEl) percentEl.textContent = "100%";
+      if (barEl) barEl.style.width = "100%";
+      if (statusEl) statusEl.textContent = "Welcome to Stackly";
+
+      // Brief moment at 100% then trigger curtain reveal
+      setTimeout(() => {
+        preloader.classList.add("preloader-loaded");
+        document.body.classList.remove("preloader-active");
+
+        // Completely hide preloader after shutters finish sliding
+        setTimeout(() => {
+          preloader.classList.add("preloader-hidden");
+          preloader.setAttribute("aria-hidden", "true");
+        }, 750);
+      }, 150);
+    }
+  }
+
+  requestAnimationFrame(updatePreloader);
 }
