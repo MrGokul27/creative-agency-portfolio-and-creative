@@ -742,9 +742,7 @@ body.auth-body {
   font-weight: 500;
 }
 
-/* ==========================================================================
-   9. SOCIAL & BIOMETRIC AUTH PROVIDERS
-   ========================================================================== */
+/* 9. SOCIAL & BIOMETRIC AUTH PROVIDERS */
 .auth-providers-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -830,7 +828,7 @@ body.auth-body {
 }
 
 .auth-security-badge-text {
-  font-size: 11px;
+  font-size: 11.5px;
   color: #64748b;
   font-weight: 500;
   margin: 0;
@@ -878,10 +876,180 @@ body.auth-body {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE BREAKPOINTS
+   12. HEADER ACTION & REGISTER PAGE STYLES
+   ========================================================================== */
+.auth-header-action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.auth-header-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.auth-header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--auth-primary);
+  background-color: transparent;
+  border: 1.5px solid var(--auth-primary);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.auth-header-btn:hover {
+  background-color: var(--auth-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(59, 54, 219, 0.25);
+  transform: translateY(-1px);
+}
+
+.auth-register-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
+  background-color: #fcfcfd;
+  min-height: calc(100vh - 72px);
+}
+
+.auth-register-container {
+  width: 100%;
+  max-width: 1140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin: 0 auto;
+}
+
+.auth-register-card-col {
+  flex: 1 1 490px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.auth-register-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 28px 32px 24px 32px;
+  box-shadow:
+    0 16px 40px -10px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(15, 23, 42, 0.03);
+  position: relative;
+}
+
+.auth-register-art-col {
+  flex: 1 1 500px;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-register-art-card {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px -10px rgba(99, 102, 241, 0.12);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-register-art-img {
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: contain;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Social 3-button Group */
+.auth-social-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.auth-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 12px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #1e293b;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-social-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.auth-social-btn:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.05);
+}
+
+.auth-terms-link {
+  color: var(--auth-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-terms-link:hover {
+  text-decoration: underline;
+}
+
+.auth-form-redirect {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+.auth-link-bold {
+  color: var(--auth-primary);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.auth-link-bold:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   13. RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (min-width: 1025px) {
-  body.auth-body {
+  body.auth-body:not(.auth-register-page) {
     height: 100vh;
     max-height: 100vh;
     overflow: hidden;
@@ -925,6 +1093,11 @@ body.auth-body {
 
   .auth-oval-caption {
     font-size: 19px;
+  }
+
+  .auth-register-container {
+    gap: 32px;
+    padding: 0 20px;
   }
 }
 
@@ -986,6 +1159,20 @@ body.auth-body {
     justify-content: center;
     margin-top: 20px;
   }
+
+  .auth-register-container {
+    flex-direction: column-reverse;
+    gap: 32px;
+    padding: 0 12px;
+  }
+
+  .auth-register-art-col {
+    max-width: 460px;
+  }
+
+  .auth-register-card-col {
+    max-width: 480px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -997,8 +1184,14 @@ body.auth-body {
     gap: 12px;
   }
 
-  .auth-header-item span {
+  .auth-header-item span,
+  .auth-header-text {
     display: none;
+  }
+
+  .auth-header-btn {
+    padding: 6px 14px;
+    font-size: 13px;
   }
 
   .auth-left-panel {
@@ -1019,13 +1212,18 @@ body.auth-body {
     margin: 0 auto 30px auto;
   }
 
-  .auth-card {
+  .auth-card,
+  .auth-register-card {
     padding: 22px 18px 16px 18px;
     border-radius: 20px;
   }
 
+  .auth-social-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .auth-left-artwork-group {
-    /* flex-direction: column-reverse; */
     align-items: center;
     gap: 12px;
     margin-top: 10px;

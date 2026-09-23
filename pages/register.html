@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Account - Stackly Creative Agency</title>
+
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6 Latest -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Custom Authentication Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+  </head>
+  <body class="auth-body auth-register-page">
+    <!-- Top Authentication Navigation Bar -->
+    <header class="auth-header-bar">
+      <div class="auth-header-container">
+        <!-- Brand Logo -->
+        <a href="../index.html" class="auth-header-logo-link">
+          <img
+            src="../assets/images/stackly-logo.webp"
+            alt="Stackly Logo"
+            class="auth-header-logo-img"
+          />
+        </a>
+
+        <!-- Header Action: Already have an account? Login -->
+        <div class="auth-header-action">
+          <span class="auth-header-text">Already have an account?</span>
+          <a href="login.html" class="auth-header-btn">Login</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Registration Section (Split Form & Creative Showcase) -->
+    <main class="auth-register-main">
+      <div class="auth-register-container">
+        <!-- Left Side: Registration Card -->
+        <div class="auth-register-card-col">
+          <div class="auth-register-card">
+            <!-- Card Header -->
+            <div class="auth-card-header">
+              <h1
+                class="auth-card-title"
+                style="font-size: 26px; font-weight: 800; margin-bottom: 6px"
+              >
+                Create Your Account
+              </h1>
+              <p class="auth-card-subtitle" style="font-size: 13px">
+                Join us and be part of our creative journey
+              </p>
+            </div>
+
+            <!-- Social Registration Buttons (Google, Apple, Facebook) -->
+            <div class="auth-social-row">
+              <button
+                type="button"
+                class="auth-social-btn"
+                data-provider="Google"
+                aria-label="Sign up with Google"
+              >
+                <img
+                  src="../assets/images/auth/login-chrome.webp"
+                  alt="Google"
+                />
+                <span>Google</span>
+              </button>
+
+              <button
+                type="button"
+                class="auth-social-btn"
+                data-provider="Apple"
+                aria-label="Sign up with Apple"
+              >
+                <img src="../assets/images/auth/login-apple.webp" alt="Apple" />
+                <span>Apple</span>
+              </button>
+
+              <button
+                type="button"
+                class="auth-social-btn"
+                data-provider="Facebook"
+                aria-label="Sign up with Facebook"
+              >
+                <img
+                  src="../assets/images/auth/login-facebook.webp"
+                  alt="Facebook"
+                />
+                <span>Facebook</span>
+              </button>
+            </div>
+
+            <!-- Divider: or sign up with -->
+            <div class="auth-or-divider" style="margin: 12px 0 14px 0">
+              <span>or sign up with</span>
+            </div>
+
+            <!-- Alert Container for Feedback & Validation Messages -->
+            <div id="authAlertBox" class="auth-alert-box" role="alert"></div>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="auth-form" novalidate>
+              <!-- 1. Username Field (Letters and Spaces Only, No Numbers or Special Characters) -->
+              <div class="auth-field-group">
+                <label for="regUsername" class="auth-field-label">
+                  Username <span class="auth-required-marker">*</span>
+                </label>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon-left">
+                    <i class="fa-regular fa-user"></i>
+                  </span>
+                  <input
+                    type="text"
+                    id="regUsername"
+                    name="username"
+                    class="auth-form-control"
+                    placeholder="Enter your username"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <span id="usernameErrorMsg" class="auth-field-error-msg"></span>
+              </div>
+
+              <!-- 2. Role Selection Field (Required) -->
+              <div class="auth-field-group">
+                <label for="regRole" class="auth-field-label">
+                  Role <span class="auth-required-marker">*</span>
+                </label>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon-left">
+                    <i class="fa-solid fa-user-shield"></i>
+                  </span>
+                  <select
+                    id="regRole"
+                    name="role"
+                    class="auth-form-control auth-select-control"
+                    required
+                  >
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="client">Client</option>
+                    <option value="agency_admin">Agency Admin</option>
+                    <option value="creative_designer">Creative Designer</option>
+                    <option value="project_manager">Project Manager</option>
+                    <option value="developer">Developer</option>
+                    <option value="guest">Guest / Viewer</option>
+                  </select>
+                  <span class="auth-select-arrow">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </div>
+                <span id="roleErrorMsg" class="auth-field-error-msg"></span>
+              </div>
+
+              <!-- 3. Email Address Field (Required) -->
+              <div class="auth-field-group">
+                <label for="regEmail" class="auth-field-label">
+                  Email Address <span class="auth-required-marker">*</span>
+                </label>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon-left">
+                    <i class="fa-regular fa-envelope"></i>
+                  </span>
+                  <input
+                    type="email"
+                    id="regEmail"
+                    name="email"
+                    class="auth-form-control"
+                    placeholder="Enter your email address"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+                <span id="emailErrorMsg" class="auth-field-error-msg"></span>
+              </div>
+
+              <!-- 4. Password Field with Weak Password Validation (Required) -->
+              <div class="auth-field-group">
+                <label for="regPassword" class="auth-field-label">
+                  Password <span class="auth-required-marker">*</span>
+                </label>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon-left">
+                    <i class="fa-solid fa-lock"></i>
+                  </span>
+                  <input
+                    type="password"
+                    id="regPassword"
+                    name="password"
+                    class="auth-form-control"
+                    placeholder="Create a password"
+                    required
+                    autocomplete="new-password"
+                  />
+                  <button
+                    type="button"
+                    class="auth-password-toggle-btn"
+                    data-target="regPassword"
+                    aria-label="Show password"
+                  >
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+
+                <!-- Real-time Password Strength Meter -->
+                <div
+                  id="regPwdStrengthWrap"
+                  class="pwd-strength-meter-wrap"
+                  style="display: none"
+                >
+                  <div class="pwd-strength-bars">
+                    <div class="strength-bar-seg"></div>
+                    <div class="strength-bar-seg"></div>
+                    <div class="strength-bar-seg"></div>
+                    <div class="strength-bar-seg"></div>
+                  </div>
+                  <div class="pwd-strength-meta">
+                    <span
+                      id="regPwdStrengthBadge"
+                      class="pwd-strength-badge"
+                    ></span>
+                    <span
+                      id="regPwdStrengthHint"
+                      class="pwd-strength-guidance"
+                    ></span>
+                  </div>
+                </div>
+                <span id="passwordErrorMsg" class="auth-field-error-msg"></span>
+              </div>
+
+              <!-- 5. Confirm Password Field (Required & Matches Password) -->
+              <div class="auth-field-group">
+                <label for="regConfirmPassword" class="auth-field-label">
+                  Confirm Password <span class="auth-required-marker">*</span>
+                </label>
+                <div class="auth-input-wrapper">
+                  <span class="auth-input-icon-left">
+                    <i class="fa-solid fa-lock"></i>
+                  </span>
+                  <input
+                    type="password"
+                    id="regConfirmPassword"
+                    name="confirmPassword"
+                    class="auth-form-control"
+                    placeholder="Confirm password"
+                    required
+                    autocomplete="new-password"
+                  />
+                  <button
+                    type="button"
+                    class="auth-password-toggle-btn"
+                    data-target="regConfirmPassword"
+                    aria-label="Show password"
+                  >
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+                <span
+                  id="confirmPasswordErrorMsg"
+                  class="auth-field-error-msg"
+                ></span>
+              </div>
+
+              <!-- 6. Terms & Conditions Agreement Checkbox (Required) -->
+              <div class="auth-options-row" style="margin-top: 4px">
+                <label class="auth-checkbox-label" for="regTerms">
+                  <input
+                    type="checkbox"
+                    id="regTerms"
+                    name="terms"
+                    class="auth-custom-checkbox"
+                    required
+                  />
+                  <span>
+                    I agree to the
+                    <a href="#" class="auth-terms-link"
+                      >Terms &amp; Conditions</a
+                    >
+                    and
+                    <a href="#" class="auth-terms-link">Privacy Policy</a>
+                    <span class="auth-required-marker">*</span>
+                  </span>
+                </label>
+              </div>
+              <span id="termsErrorMsg" class="auth-field-error-msg"></span>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                id="regSubmitBtn"
+                class="auth-submit-btn"
+                style="margin-top: 8px"
+              >
+                Sign Up
+              </button>
+            </form>
+
+            <!-- Bottom Security Badge -->
+            <div class="auth-security-badge-footer" style="margin-top: 14px">
+              <p class="auth-security-badge-text">
+                Your security is our priority
+              </p>
+            </div>
+
+            <!-- Bottom Form Redirect Link -->
+            <div class="auth-form-redirect">
+              Already have an account?
+              <a href="login.html" class="auth-link-bold">Login</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Visual Artwork Illustration -->
+        <div class="auth-register-art-col">
+          <div class="auth-register-art-card">
+            <img
+              src="../assets/images/auth/register-page-rightside-image.webp"
+              alt="Good Ideas Build Great Brands"
+              class="auth-register-art-img"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Custom Authentication Logic -->
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>
