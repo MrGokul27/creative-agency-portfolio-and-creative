@@ -1,0 +1,2537 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Stackly Creative Agency</title>
+
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6 Latest -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Dashboard Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  </head>
+  <body class="dashboard-body" data-in-pages="true">
+    <div class="dashboard-wrapper">
+      <!-- Mobile Sidebar Overlay Backdrop -->
+      <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+      <!-- ======================================================================
+           1. SIDEBAR NAVIGATION COMPONENT (ROLE-BASED)
+           ====================================================================== -->
+      <aside id="dashboardSidebar" class="dashboard-sidebar">
+        <!-- Sidebar Brand Header -->
+        <div class="sidebar-header">
+          <a
+            href="../index.html"
+            class="d-inline-flex align-items-center text-decoration-none"
+          >
+            <img
+              src="../assets/images/stackly-logo.webp"
+              alt="Stackly Creative Agency"
+              class="sidebar-logo-img"
+            />
+          </a>
+          <button
+            id="sidebarCloseBtn"
+            class="sidebar-close-btn"
+            type="button"
+            aria-label="Close sidebar"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Current Role Indicator Pill -->
+        <div class="sidebar-role-indicator">
+          <div class="role-badge-pill">
+            <div class="role-icon-box">
+              <i id="sidebarRoleIcon" class="fa-solid fa-crown"></i>
+            </div>
+            <div class="role-meta-box">
+              <span class="role-label-title">Active Role</span>
+              <h5 id="sidebarRoleTitle" class="role-name-title">
+                Agency Admin
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role-Specific Sidebar Navigation Menus -->
+        <div class="sidebar-nav-container">
+          <!-- GROUP 1: AGENCY ADMIN SIDEBAR -->
+          <div class="role-sidebar-group" data-role="agency_admin">
+            <div class="sidebar-menu-category">Executive Management</div>
+            <ul class="sidebar-nav-list">
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link active"
+                  data-tab-target="admin-overview"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Executive Overview</span>
+                  </span>
+                  <span class="sidebar-nav-badge">Live</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="admin-team">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>Team & Resources</span>
+                  </span>
+                  <span class="sidebar-nav-badge">18</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="admin-clients">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Client Directory & SLA</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="admin-financials">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Financials & Revenue P&L</span>
+                  </span>
+                  <span class="sidebar-nav-badge">+28%</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="admin-settings">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Agency Workspace</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- GROUP 2: CREATIVE DESIGNER SIDEBAR -->
+          <div
+            class="role-sidebar-group"
+            data-role="creative_designer"
+            style="display: none"
+          >
+            <div class="sidebar-menu-category">Creative Studio</div>
+            <ul class="sidebar-nav-list">
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link active"
+                  data-tab-target="designer-tasks"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                    <span>Design Workspace</span>
+                  </span>
+                  <span class="sidebar-nav-badge badge-urgent">4 Due</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link"
+                  data-tab-target="designer-artboards"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Artboards & Deliverables</span>
+                  </span>
+                  <span class="sidebar-nav-badge">12</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="designer-tracker">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <span>Time Tracker & Logs</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link"
+                  data-tab-target="designer-moodboard"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Moodboards & Assets</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link"
+                  data-tab-target="designer-portfolio"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Portfolio Submissions</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- GROUP 3: PROJECT MANAGER SIDEBAR -->
+          <div
+            class="role-sidebar-group"
+            data-role="project_manager"
+            style="display: none"
+          >
+            <div class="sidebar-menu-category">Delivery & Sprints</div>
+            <ul class="sidebar-nav-list">
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link active" data-tab-target="pm-hub">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>Project Hub & Milestones</span>
+                  </span>
+                  <span class="sidebar-nav-badge">6 Active</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="pm-kanban">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-table-columns"></i>
+                    <span>Sprint Kanban Board</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="pm-calendar">
+                  <span class="nav-left-content">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>Agency Schedule & Deadlines</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="pm-sla">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>SLA & Delivery Health</span>
+                  </span>
+                  <span class="sidebar-nav-badge">99.4%</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="pm-reports">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Client Reports & Minutes</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- GROUP 4: CLIENT SIDEBAR -->
+          <div
+            class="role-sidebar-group"
+            data-role="client"
+            style="display: none"
+          >
+            <div class="sidebar-menu-category">Client Portal</div>
+            <ul class="sidebar-nav-list">
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link active"
+                  data-tab-target="client-overview"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>Overview & Campaigns</span>
+                  </span>
+                  <span class="sidebar-nav-badge">Active</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="client-proofing">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-swatchbook"></i>
+                    <span>Deliverable Proofing</span>
+                  </span>
+                  <span class="sidebar-nav-badge badge-urgent">3 New</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="client-revisions">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Feedback & Revisions</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="client-invoices">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Invoices & Billing</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="client-brand">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>Brand Assets & Style Kit</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- GROUP 5: GUEST / VIEWER SIDEBAR -->
+          <div
+            class="role-sidebar-group"
+            data-role="guest"
+            style="display: none"
+          >
+            <div class="sidebar-menu-category">Showcase Hub</div>
+            <ul class="sidebar-nav-list">
+              <li class="sidebar-nav-item">
+                <a
+                  class="sidebar-nav-link active"
+                  data-tab-target="guest-showcase"
+                >
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Agency Showcase</span>
+                  </span>
+                  <span class="sidebar-nav-badge">Featured</span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="guest-demo">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>Interactive Demo Project</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="guest-rates">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Services & Rate Cards</span>
+                  </span>
+                </a>
+              </li>
+              <li class="sidebar-nav-item">
+                <a class="sidebar-nav-link" data-tab-target="guest-proposal">
+                  <span class="nav-left-content">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <span>Request a Proposal</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sidebar Retainer & Capacity Widget -->
+        <div class="sidebar-footer-widget">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h6>Sprint Capacity</h6>
+            <span class="badge bg-white text-dark border">84%</span>
+          </div>
+          <p>Q3 Creative Retainer allocated</p>
+          <div class="sidebar-progress-bar">
+            <div class="sidebar-progress-fill" style="width: 84%"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ======================================================================
+           2. MAIN CONTENT WRAPPER
+           ====================================================================== -->
+      <main class="dashboard-main">
+        <!-- Dashboard Topbar Header -->
+        <header class="dashboard-topbar">
+          <div class="topbar-left">
+            <!-- Mobile Toggle -->
+            <button
+              id="mobileToggleBtn"
+              class="mobile-toggle-btn"
+              type="button"
+              aria-label="Toggle Menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Global Search -->
+            <div class="topbar-search-box">
+              <i class="fa-solid fa-magnifying-glass topbar-search-icon"></i>
+              <input
+                type="text"
+                class="topbar-search-input"
+                placeholder="Search campaigns, deliverables, assets, designers..."
+              />
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <!-- Live Role Switcher Dropdown (Allows testing all 5 roles on the fly) -->
+            <!-- <div class="dropdown role-switcher-dropdown">
+              <button
+                class="btn-role-select dropdown-toggle"
+                type="button"
+                id="roleSwitcherDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-no-redirect="true"
+              >
+                <i id="currentRoleIcon" class="fa-solid fa-crown me-1"></i>
+                <span id="currentRoleName">Agency Admin</span>
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow-sm"
+                aria-labelledby="roleSwitcherDropdown"
+              >
+                <li>
+                  <h6 class="dropdown-header text-uppercase">
+                    Switch Dashboard Role
+                  </h6>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item dropdown-item-role"
+                    href="#"
+                    data-role-value="agency_admin"
+                  >
+                    <i class="fa-solid fa-crown me-2 text-primary"></i> Agency
+                    Admin
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item dropdown-item-role"
+                    href="#"
+                    data-role-value="creative_designer"
+                  >
+                    <i class="fa-solid fa-palette me-2 text-info"></i> Creative
+                    Designer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item dropdown-item-role"
+                    href="#"
+                    data-role-value="project_manager"
+                  >
+                    <i
+                      class="fa-solid fa-diagram-project me-2 text-warning"
+                    ></i>
+                    Project Manager
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item dropdown-item-role"
+                    href="#"
+                    data-role-value="client"
+                  >
+                    <i class="fa-solid fa-user-tie me-2 text-success"></i>
+                    Client
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item dropdown-item-role"
+                    href="#"
+                    data-role-value="guest"
+                  >
+                    <i class="fa-solid fa-eye me-2 text-secondary"></i> Guest /
+                    Viewer
+                  </a>
+                </li>
+              </ul>
+            </div> -->
+
+            <!-- Notifications Button -->
+            <button
+              class="topbar-icon-btn btn-placeholder-action"
+              type="button"
+              title="Notifications"
+            >
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-dot"></span>
+            </button>
+
+            <!-- User Profile & Name -->
+            <div class="topbar-user-profile">
+              <div id="topbarUserAvatar" class="user-avatar-circle">AD</div>
+              <div class="user-details-meta">
+                <h6 id="topbarUserName" class="user-name-text">
+                  Creative Director
+                </h6>
+                <span id="topbarUserRole" class="user-role-text"
+                  >Agency Admin</span
+                >
+              </div>
+            </div>
+
+            <!-- Functional Logout Button -->
+            <button id="btnLogout" class="btn-topbar-logout" type="button">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span class="d-none d-sm-inline">Logout</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Dashboard View Container -->
+        <div class="dashboard-content-body">
+          <!-- ################################################################
+               ROLE VIEW 1: AGENCY ADMIN
+               ################################################################ -->
+          <section
+            class="role-view-section active-view"
+            data-role="agency_admin"
+          >
+            <!-- Admin Welcome Banner -->
+            <div class="dash-welcome-banner">
+              <span class="dash-welcome-badge">
+                <i class="fa-solid fa-crown me-1"></i> Executive Agency Control
+              </span>
+              <h2 class="dash-welcome-title">
+                Creative Operations & Revenue Dashboard
+              </h2>
+              <p class="dash-welcome-subtitle">
+                Comprehensive overview of agency billings, live sprint health,
+                designer capacity allocation, and VIP client accounts for
+                Stackly Creative Agency.
+              </p>
+              <div class="dash-welcome-actions">
+                <button
+                  type="button"
+                  class="btn-dash-primary btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-file-export"></i> Download Q3 Financial
+                  Audit
+                </button>
+                <button
+                  type="button"
+                  class="btn-dash-outline-light btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-plus"></i> New Client Onboarding
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Admin Overview -->
+            <div id="admin-overview" class="role-tab-pane active-pane">
+              <!-- Key Metrics Grid -->
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <span class="stat-title">Monthly Agency MRR</span>
+                      <div class="stat-icon-wrap stat-icon-purple">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                      </div>
+                    </div>
+                    <div class="stat-value">$148,250</div>
+                    <div class="stat-meta">
+                      <span class="stat-trend trend-up"
+                        ><i class="fa-solid fa-arrow-up"></i> +14.2%</span
+                      >
+                      <span>vs last month</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <span class="stat-title">Active Retainers</span>
+                      <div class="stat-icon-wrap stat-icon-blue">
+                        <i class="fa-solid fa-handshake"></i>
+                      </div>
+                    </div>
+                    <div class="stat-value">24 Accounts</div>
+                    <div class="stat-meta">
+                      <span class="stat-trend trend-up"
+                        ><i class="fa-solid fa-arrow-up"></i> +3 New</span
+                      >
+                      <span>98% retention</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <span class="stat-title">Creative Team Capacity</span>
+                      <div class="stat-icon-wrap stat-icon-green">
+                        <i class="fa-solid fa-people-group"></i>
+                      </div>
+                    </div>
+                    <div class="stat-value">86.4%</div>
+                    <div class="stat-meta">
+                      <span class="stat-trend trend-up"
+                        ><i class="fa-solid fa-check"></i> Optimal</span
+                      >
+                      <span>18 Designers active</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-xl-3">
+                  <div class="stat-card">
+                    <div class="stat-header">
+                      <span class="stat-title">On-Time SLA Delivery</span>
+                      <div class="stat-icon-wrap stat-icon-amber">
+                        <i class="fa-solid fa-bolt"></i>
+                      </div>
+                    </div>
+                    <div class="stat-value">99.1%</div>
+                    <div class="stat-meta">
+                      <span class="stat-trend trend-up"
+                        ><i class="fa-solid fa-arrow-up"></i> +0.6%</span
+                      >
+                      <span>52 deliverables shipped</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Projects & Agency Financials Overview Table -->
+              <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <h4 class="dash-card-title">
+                        <i class="fa-solid fa-briefcase"></i> High-Priority
+                        Client Accounts & Retainers
+                      </h4>
+                      <div class="dash-card-actions">
+                        <input
+                          type="text"
+                          class="form-control form-control-sm table-search-filter"
+                          placeholder="Filter clients..."
+                          data-target-table="adminClientTable"
+                          style="max-width: 180px"
+                        />
+                      </div>
+                    </div>
+                    <div class="table-responsive dash-table-container">
+                      <table id="adminClientTable" class="dash-table table">
+                        <thead>
+                          <tr>
+                            <th>Client & Brand</th>
+                            <th>Tier & Scope</th>
+                            <th>Monthly Retainer</th>
+                            <th>Sprint Status</th>
+                            <th>Health</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <strong>Lumina Tech Global</strong><br />
+                              <span class="text-muted small"
+                                >San Francisco, CA</span
+                              >
+                            </td>
+                            <td>3D Motion & Enterprise UI</td>
+                            <td>
+                              <strong class="text-dark">$24,500/mo</strong>
+                            </td>
+                            <td>
+                              <span class="badge-status status-active"
+                                >Sprint 14 Active</span
+                              >
+                            </td>
+                            <td>
+                              <span class="badge bg-success"
+                                >100% On-Track</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Aura Haute Couture</strong><br />
+                              <span class="text-muted small"
+                                >Paris, France</span
+                              >
+                            </td>
+                            <td>Brand Identity & Editorial</td>
+                            <td>
+                              <strong class="text-dark">$18,000/mo</strong>
+                            </td>
+                            <td>
+                              <span class="badge-status status-review"
+                                >Creative Review</span
+                              >
+                            </td>
+                            <td>
+                              <span class="badge bg-success">98% On-Track</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>NovaFin Technologies</strong><br />
+                              <span class="text-muted small">London, UK</span>
+                            </td>
+                            <td>Design System & Mobile App</td>
+                            <td>
+                              <strong class="text-dark">$32,000/mo</strong>
+                            </td>
+                            <td>
+                              <span class="badge-status status-progress"
+                                >In Development</span
+                              >
+                            </td>
+                            <td>
+                              <span class="badge bg-warning text-dark"
+                                >Scope Review</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Vanguard Electric EV</strong><br />
+                              <span class="text-muted small"
+                                >Berlin, Germany</span
+                              >
+                            </td>
+                            <td>CGI Car Visualizer & Web</td>
+                            <td>
+                              <strong class="text-dark">$45,000/mo</strong>
+                            </td>
+                            <td>
+                              <span class="badge-status status-active"
+                                >Phase 2 Shipped</span
+                              >
+                            </td>
+                            <td>
+                              <span class="badge bg-success"
+                                >100% On-Track</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <h4 class="dash-card-title">
+                        <i class="fa-solid fa-chart-donut"></i> Revenue by
+                        Discipline
+                      </h4>
+                    </div>
+                    <div class="mb-3">
+                      <div
+                        class="d-flex justify-content-between text-muted small mb-1"
+                      >
+                        <span>3D Motion & Visual Effects</span>
+                        <strong class="text-dark">38% ($56,335)</strong>
+                      </div>
+                      <div class="progress" style="height: 8px">
+                        <div
+                          class="progress-bar bg-primary"
+                          style="width: 38%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <div
+                        class="d-flex justify-content-between text-muted small mb-1"
+                      >
+                        <span>Brand Identity & Strategy</span>
+                        <strong class="text-dark">27% ($40,027)</strong>
+                      </div>
+                      <div class="progress" style="height: 8px">
+                        <div
+                          class="progress-bar bg-info"
+                          style="width: 27%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <div
+                        class="d-flex justify-content-between text-muted small mb-1"
+                      >
+                        <span>UI/UX & Product Design</span>
+                        <strong class="text-dark">23% ($34,100)</strong>
+                      </div>
+                      <div class="progress" style="height: 8px">
+                        <div
+                          class="progress-bar bg-warning"
+                          style="width: 23%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="d-flex justify-content-between text-muted small mb-1"
+                      >
+                        <span>Digital Marketing Creatives</span>
+                        <strong class="text-dark">12% ($17,788)</strong>
+                      </div>
+                      <div class="progress" style="height: 8px">
+                        <div
+                          class="progress-bar bg-success"
+                          style="width: 12%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <hr class="my-4" />
+                    <button
+                      class="btn btn-outline-primary btn-sm w-100 btn-placeholder-action"
+                      type="button"
+                    >
+                      <i class="fa-solid fa-download me-1"></i> Generate
+                      Executive P&L PDF
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Admin Team -->
+            <div id="admin-team" class="role-tab-pane">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h4 class="dash-card-title">
+                    <i class="fa-solid fa-users"></i> Creative Studio Resource
+                    Roster
+                  </h4>
+                  <button
+                    class="btn btn-sm btn-primary btn-placeholder-action"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-user-plus me-1"></i> Add Team Member
+                  </button>
+                </div>
+                <div class="table-responsive dash-table-container">
+                  <table class="dash-table table">
+                    <thead>
+                      <tr>
+                        <th>Team Member</th>
+                        <th>Role / Specialization</th>
+                        <th>Current Assignment</th>
+                        <th>Weekly Hours</th>
+                        <th>Utilization</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Elena Rostova</strong></td>
+                        <td>Lead 3D & CGI Artist</td>
+                        <td>Vanguard EV Configurator</td>
+                        <td>38.5 hrs</td>
+                        <td><span class="badge bg-success">96%</span></td>
+                        <td>
+                          <span class="badge-status status-active"
+                            >Available Mon</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Marcus Vance</strong></td>
+                        <td>Senior Brand Strategist</td>
+                        <td>Aura Haute Couture Rebrand</td>
+                        <td>40.0 hrs</td>
+                        <td>
+                          <span class="badge bg-warning text-dark"
+                            >100% (Cap)</span
+                          >
+                        </td>
+                        <td>
+                          <span class="badge-status status-progress">Busy</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Sophia Chen</strong></td>
+                        <td>Principal UI/UX Architect</td>
+                        <td>NovaFin Mobile Design System</td>
+                        <td>34.0 hrs</td>
+                        <td><span class="badge bg-success">85%</span></td>
+                        <td>
+                          <span class="badge-status status-active"
+                            >Available</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Liam O'Connor</strong></td>
+                        <td>Motion & Video Art Director</td>
+                        <td>Lumina Tech Brand Campaign</td>
+                        <td>36.5 hrs</td>
+                        <td><span class="badge bg-success">91%</span></td>
+                        <td>
+                          <span class="badge-status status-active">Active</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Admin Clients -->
+            <div id="admin-clients" class="role-tab-pane">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h4 class="dash-card-title">
+                    <i class="fa-solid fa-handshake"></i> Client Contracts &
+                    Service Level Agreements
+                  </h4>
+                  <button
+                    class="btn btn-sm btn-outline-secondary btn-placeholder-action"
+                    type="button"
+                  >
+                    <i class="fa-solid fa-filter me-1"></i> Filter By Tier
+                  </button>
+                </div>
+                <div class="table-responsive dash-table-container">
+                  <table class="dash-table table">
+                    <thead>
+                      <tr>
+                        <th>Account</th>
+                        <th>Contract Period</th>
+                        <th>SLA Turnaround</th>
+                        <th>Design Director</th>
+                        <th>Monthly Cap</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Lumina Tech Global</strong></td>
+                        <td>Jan 2026 - Dec 2026 (Annual)</td>
+                        <td>
+                          <span class="badge bg-primary">24h Priority</span>
+                        </td>
+                        <td>Elena Rostova</td>
+                        <td>120 hrs / mo</td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-light btn-placeholder-action"
+                            type="button"
+                          >
+                            View SLA
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>NovaFin Technologies</strong></td>
+                        <td>Mar 2026 - Sep 2026 (6-Mo)</td>
+                        <td>
+                          <span class="badge bg-primary">24h Priority</span>
+                        </td>
+                        <td>Sophia Chen</td>
+                        <td>160 hrs / mo</td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-light btn-placeholder-action"
+                            type="button"
+                          >
+                            View SLA
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Aura Haute Couture</strong></td>
+                        <td>Feb 2026 - Feb 2027 (Annual)</td>
+                        <td>
+                          <span class="badge bg-secondary">48h Standard</span>
+                        </td>
+                        <td>Marcus Vance</td>
+                        <td>90 hrs / mo</td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-light btn-placeholder-action"
+                            type="button"
+                          >
+                            View SLA
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Admin Financials -->
+            <div id="admin-financials" class="role-tab-pane">
+              <div class="row g-4">
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Quarterly Gross Revenue</span>
+                    <div class="stat-value text-success">$445,800</div>
+                    <span class="stat-meta text-muted">+22% YoY Expansion</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Agency Net Profit Margin</span>
+                    <div class="stat-value text-primary">42.8%</div>
+                    <span class="stat-meta text-muted"
+                      >Industry Top 5% Tier</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Outstanding Receivables</span>
+                    <div class="stat-value text-warning">$18,400</div>
+                    <span class="stat-meta text-muted"
+                      >All within 15-day Net terms</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Admin Settings -->
+            <div id="admin-settings" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-sliders"></i> Agency Workspace
+                  Integrations
+                </h4>
+                <p class="text-muted small mb-4">
+                  Manage connected design repositories, cloud render farms, and
+                  client communication channels.
+                </p>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div
+                      class="p-3 border rounded d-flex justify-content-between align-items-center"
+                    >
+                      <div class="d-flex align-items-center gap-3">
+                        <i class="fa-brands fa-figma fa-2x text-danger"></i>
+                        <div>
+                          <strong>Figma Enterprise</strong><br />
+                          <span class="text-muted small"
+                            >Connected to 14 Team Projects</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-success">Active</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div
+                      class="p-3 border rounded d-flex justify-content-between align-items-center"
+                    >
+                      <div class="d-flex align-items-center gap-3">
+                        <i class="fa-brands fa-slack fa-2x text-warning"></i>
+                        <div>
+                          <strong>Slack Agency Hub</strong><br />
+                          <span class="text-muted small"
+                            >#creative-sprint & #client-sync</span
+                          >
+                        </div>
+                      </div>
+                      <span class="badge bg-success">Active</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ################################################################
+               ROLE VIEW 2: CREATIVE DESIGNER
+               ################################################################ -->
+          <section class="role-view-section" data-role="creative_designer">
+            <div class="dash-welcome-banner">
+              <span class="dash-welcome-badge">
+                <i class="fa-solid fa-palette me-1"></i> Creative Designer
+                Studio
+              </span>
+              <h2 class="dash-welcome-title">
+                Artboards, Deliverables & Sprint Queue
+              </h2>
+              <p class="dash-welcome-subtitle">
+                Track your active creative sprints, upload high-res renders, log
+                billable design hours, and inspect client feedback tickets.
+              </p>
+              <div class="dash-welcome-actions">
+                <button
+                  type="button"
+                  class="btn-dash-primary btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-cloud-arrow-up"></i> Upload New
+                  Deliverable
+                </button>
+                <button
+                  type="button"
+                  class="btn-dash-outline-light btn-placeholder-action"
+                >
+                  <i class="fa-brands fa-figma"></i> Open Figma Workspace
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Designer Tasks -->
+            <div id="designer-tasks" class="role-tab-pane active-pane">
+              <div class="row g-4 mb-4">
+                <!-- Live Time Tracker Box -->
+                <div class="col-12 col-lg-5">
+                  <div
+                    class="time-tracker-card h-100 d-flex flex-column justify-content-between"
+                  >
+                    <div>
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <span class="badge bg-info text-dark font-monospace"
+                          >ACTIVE BILLABLE TASK</span
+                        >
+                        <span class="text-white-50 small"
+                          ><i class="fa-solid fa-circle text-danger me-1"></i>
+                          Live</span
+                        >
+                      </div>
+                      <h4 class="mt-3 text-white fw-bold">
+                        Vanguard EV - 3D Interior Light Cinema 4D
+                      </h4>
+                      <p class="text-white-50 small">
+                        Project: Vanguard Electric EV Campaign (Retainer Sprint
+                        12)
+                      </p>
+                      <div id="liveTimerDigits" class="timer-digits">
+                        02:14:35
+                      </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                      <button
+                        id="btnTimerToggle"
+                        class="btn-timer-toggle"
+                        type="button"
+                      >
+                        <i class="fa-solid fa-pause me-1"></i> Pause Timer
+                      </button>
+                      <button
+                        class="btn btn-outline-light rounded-pill btn-placeholder-action"
+                        type="button"
+                      >
+                        <i class="fa-solid fa-check me-1"></i> Complete Task
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Assigned Sprint Tasks -->
+                <div class="col-12 col-lg-7">
+                  <div class="dash-card">
+                    <div class="dash-card-header">
+                      <h4 class="dash-card-title">
+                        <i class="fa-solid fa-list-check"></i> Today's Assigned
+                        Design Queue
+                      </h4>
+                      <span class="badge bg-primary">4 Tasks In Progress</span>
+                    </div>
+                    <div class="table-responsive dash-table-container">
+                      <table class="dash-table table">
+                        <thead>
+                          <tr>
+                            <th>Deliverable</th>
+                            <th>Brand</th>
+                            <th>Due</th>
+                            <th>Priority</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <strong>3D Hero Render (Glass & Metal)</strong>
+                            </td>
+                            <td>Lumina Tech</td>
+                            <td>Today, 5:00 PM</td>
+                            <td><span class="badge bg-danger">Urgent</span></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Mobile Checkout UX Prototype</strong>
+                            </td>
+                            <td>NovaFin</td>
+                            <td>Tomorrow</td>
+                            <td>
+                              <span class="badge bg-warning text-dark"
+                                >High</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Editorial Magazine Cover (Spring)</strong>
+                            </td>
+                            <td>Aura Couture</td>
+                            <td>Fri, Sep 26</td>
+                            <td>
+                              <span class="badge bg-info text-dark"
+                                >Medium</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><strong>Brand Guidelines Icon Pack</strong></td>
+                            <td>Stackly Internal</td>
+                            <td>Mon, Sep 29</td>
+                            <td>
+                              <span class="badge bg-secondary">Normal</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Designer Artboards -->
+            <div id="designer-artboards" class="role-tab-pane">
+              <div class="row g-4">
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="deliverable-card">
+                    <div class="deliverable-thumb-box">
+                      <img
+                        src="../assets/images/blog/blog-image-1.webp"
+                        alt="Visual 1"
+                        class="deliverable-thumb-img"
+                      />
+                      <span class="deliverable-version-tag">v2.4 Final</span>
+                    </div>
+                    <div class="deliverable-body">
+                      <div>
+                        <h5 class="deliverable-title">
+                          Lumina 3D Holographic UI
+                        </h5>
+                        <p class="deliverable-subtitle">
+                          Client: Lumina Tech • Format: WebGL / 4K MP4
+                        </p>
+                        <span class="badge-status status-review"
+                          >Awaiting Client Review</span
+                        >
+                      </div>
+                      <div class="deliverable-footer-actions">
+                        <button
+                          class="btn btn-sm btn-outline-primary btn-placeholder-action"
+                          type="button"
+                        >
+                          Inspect Artboard
+                        </button>
+                        <button
+                          class="btn btn-sm btn-light btn-placeholder-action"
+                          type="button"
+                        >
+                          <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="deliverable-card">
+                    <div class="deliverable-thumb-box">
+                      <img
+                        src="../assets/images/blog/blog-image-2.webp"
+                        alt="Visual 2"
+                        class="deliverable-thumb-img"
+                      />
+                      <span class="deliverable-version-tag">v1.1 Draft</span>
+                    </div>
+                    <div class="deliverable-body">
+                      <div>
+                        <h5 class="deliverable-title">
+                          Aura Autumn Campaign Brand Kit
+                        </h5>
+                        <p class="deliverable-subtitle">
+                          Client: Aura Haute Couture • Format: Vector PDF
+                        </p>
+                        <span class="badge-status status-approved"
+                          >Approved by Art Director</span
+                        >
+                      </div>
+                      <div class="deliverable-footer-actions">
+                        <button
+                          class="btn btn-sm btn-outline-primary btn-placeholder-action"
+                          type="button"
+                        >
+                          Inspect Artboard
+                        </button>
+                        <button
+                          class="btn btn-sm btn-light btn-placeholder-action"
+                          type="button"
+                        >
+                          <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-4">
+                  <div class="deliverable-card">
+                    <div class="deliverable-thumb-box">
+                      <img
+                        src="../assets/images/blog/blog-image-3.webp"
+                        alt="Visual 3"
+                        class="deliverable-thumb-img"
+                      />
+                      <span class="deliverable-version-tag">v3.0 Final</span>
+                    </div>
+                    <div class="deliverable-body">
+                      <div>
+                        <h5 class="deliverable-title">
+                          NovaFin Micro-Interactions Pack
+                        </h5>
+                        <p class="deliverable-subtitle">
+                          Client: NovaFin Tech • Format: Lottie JSON
+                        </p>
+                        <span class="badge-status status-completed"
+                          >Ready for Handoff</span
+                        >
+                      </div>
+                      <div class="deliverable-footer-actions">
+                        <button
+                          class="btn btn-sm btn-outline-primary btn-placeholder-action"
+                          type="button"
+                        >
+                          Inspect Artboard
+                        </button>
+                        <button
+                          class="btn btn-sm btn-light btn-placeholder-action"
+                          type="button"
+                        >
+                          <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Designer Tracker -->
+            <div id="designer-tracker" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-clock-rotate-left"></i> Weekly Worklog &
+                  Billable Hours
+                </h4>
+                <div class="table-responsive dash-table-container">
+                  <table class="dash-table table">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Project & Task</th>
+                        <th>Duration</th>
+                        <th>Hourly Rate</th>
+                        <th>Billable Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Wednesday, Sep 23</td>
+                        <td>Vanguard EV Interior Cinema 4D Visuals</td>
+                        <td>4 hrs 15 mins</td>
+                        <td>$125/hr</td>
+                        <td><strong>$531.25</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Tuesday, Sep 22</td>
+                        <td>Lumina Tech Hologram Shader & Lighting</td>
+                        <td>6 hrs 30 mins</td>
+                        <td>$125/hr</td>
+                        <td><strong>$812.50</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Monday, Sep 21</td>
+                        <td>Aura Couture Lookbook Typography Layout</td>
+                        <td>5 hrs 45 mins</td>
+                        <td>$125/hr</td>
+                        <td><strong>$718.75</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Designer Moodboard -->
+            <div id="designer-moodboard" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Creative
+                  Direction Color Palette & Tokens
+                </h4>
+                <div class="row g-3 mb-4">
+                  <div class="col-6 col-md-3">
+                    <div
+                      class="color-swatch-box"
+                      style="background-color: #832aff"
+                    ></div>
+                    <div class="fw-bold small">Electric Violet</div>
+                    <div class="text-muted small">#832AFF</div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div
+                      class="color-swatch-box"
+                      style="background-color: #3b36db"
+                    ></div>
+                    <div class="fw-bold small">Ultramarine Indigo</div>
+                    <div class="text-muted small">#3B36DB</div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div
+                      class="color-swatch-box"
+                      style="background-color: #fd03f9"
+                    ></div>
+                    <div class="fw-bold small">Neon Magenta</div>
+                    <div class="text-muted small">#FD03F9</div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div
+                      class="color-swatch-box"
+                      style="background-color: #0f172a"
+                    ></div>
+                    <div class="fw-bold small">Midnight Slate</div>
+                    <div class="text-muted small">#0F172A</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Designer Portfolio -->
+            <div id="designer-portfolio" class="role-tab-pane">
+              <div class="dash-card text-center py-5">
+                <i class="fa-solid fa-award fa-3x text-primary mb-3"></i>
+                <h4>Agency Award Nominations 2026</h4>
+                <p class="text-muted mx-auto" style="max-width: 500px">
+                  Your project <strong>"Lumina WebGL 3D Experience"</strong> has
+                  been nominated for Awwwards Site of the Day and FWA of the
+                  Day.
+                </p>
+                <button
+                  class="btn btn-primary rounded-pill mt-2 btn-placeholder-action"
+                  type="button"
+                >
+                  View Live Submission Dossier
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ################################################################
+               ROLE VIEW 3: PROJECT MANAGER
+               ################################################################ -->
+          <section class="role-view-section" data-role="project_manager">
+            <div class="dash-welcome-banner">
+              <span class="dash-welcome-badge">
+                <i class="fa-solid fa-diagram-project me-1"></i> Project &
+                Delivery Command
+              </span>
+              <h2 class="dash-welcome-title">
+                Milestone Tracking & Sprint Operations
+              </h2>
+              <p class="dash-welcome-subtitle">
+                Monitor team velocity, sprint blockers, client signoffs, and
+                delivery milestones across all agency client accounts.
+              </p>
+              <div class="dash-welcome-actions">
+                <button
+                  type="button"
+                  class="btn-dash-primary btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-plus"></i> Create New Sprint Task
+                </button>
+                <button
+                  type="button"
+                  class="btn-dash-outline-light btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-calendar-check"></i> Schedule Client
+                  Sync
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB PANE: PM Hub -->
+            <div id="pm-hub" class="role-tab-pane active-pane">
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Active Sprints</span>
+                    <div class="stat-value text-primary">6 Sprints</div>
+                    <span class="stat-meta text-muted"
+                      >94% velocity confidence</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Milestones This Week</span>
+                    <div class="stat-value text-success">8 Deliverables</div>
+                    <span class="stat-meta text-muted">6 already approved</span>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Open Blockers / Risks</span>
+                    <div class="stat-value text-warning">1 Ticket</div>
+                    <span class="stat-meta text-muted"
+                      >Waiting on 3D asset from client</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Projects Milestone Health Table -->
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h4 class="dash-card-title">
+                    <i class="fa-solid fa-bars-progress"></i> Campaign
+                    Milestones & Timeline Health
+                  </h4>
+                </div>
+                <div class="table-responsive dash-table-container">
+                  <table class="dash-table table">
+                    <thead>
+                      <tr>
+                        <th>Project & Brand</th>
+                        <th>Milestone Target</th>
+                        <th>Lead Designer</th>
+                        <th>Progress</th>
+                        <th>Target Date</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Lumina Tech Global</strong></td>
+                        <td>WebGL Interactive 3D Demo</td>
+                        <td>Elena Rostova</td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div
+                              class="progress flex-grow-1"
+                              style="height: 6px"
+                            >
+                              <div
+                                class="progress-bar bg-success"
+                                style="width: 90%"
+                              ></div>
+                            </div>
+                            <span class="small fw-bold">90%</span>
+                          </div>
+                        </td>
+                        <td>Sep 25, 2026</td>
+                        <td>
+                          <span class="badge-status status-completed"
+                            >On Schedule</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Aura Haute Couture</strong></td>
+                        <td>Autumn Lookbook Print & Web</td>
+                        <td>Marcus Vance</td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div
+                              class="progress flex-grow-1"
+                              style="height: 6px"
+                            >
+                              <div
+                                class="progress-bar bg-info"
+                                style="width: 65%"
+                              ></div>
+                            </div>
+                            <span class="small fw-bold">65%</span>
+                          </div>
+                        </td>
+                        <td>Sep 28, 2026</td>
+                        <td>
+                          <span class="badge-status status-progress"
+                            >In Review</span
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>NovaFin Technologies</strong></td>
+                        <td>Design System UI Kit v2</td>
+                        <td>Sophia Chen</td>
+                        <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <div
+                              class="progress flex-grow-1"
+                              style="height: 6px"
+                            >
+                              <div
+                                class="progress-bar bg-warning"
+                                style="width: 45%"
+                              ></div>
+                            </div>
+                            <span class="small fw-bold">45%</span>
+                          </div>
+                        </td>
+                        <td>Oct 05, 2026</td>
+                        <td>
+                          <span class="badge-status status-active"
+                            >Sprint 2</span
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: PM Kanban Board -->
+            <div id="pm-kanban" class="role-tab-pane">
+              <div class="kanban-board-grid">
+                <!-- Col 1: Backlog -->
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <h5 class="kanban-col-title">
+                      <i class="fa-solid fa-inbox text-secondary"></i> Backlog
+                    </h5>
+                    <span class="badge bg-secondary">3</span>
+                  </div>
+                  <div class="kanban-card-item">
+                    <span class="kanban-tag tag-medium">Branding</span>
+                    <h6 class="kanban-task-title">
+                      Aura Seasonal Color Palette Tokens
+                    </h6>
+                    <div class="kanban-task-meta">
+                      <span
+                        ><i class="fa-regular fa-clock me-1"></i> Oct 02</span
+                      >
+                      <span>Assignee: MV</span>
+                    </div>
+                  </div>
+                  <div class="kanban-card-item">
+                    <span class="kanban-tag tag-design">3D Render</span>
+                    <h6 class="kanban-task-title">
+                      Vanguard Wheels Physics Animation
+                    </h6>
+                    <div class="kanban-task-meta">
+                      <span
+                        ><i class="fa-regular fa-clock me-1"></i> Oct 04</span
+                      >
+                      <span>Assignee: ER</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Col 2: In Progress -->
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <h5 class="kanban-col-title">
+                      <i class="fa-solid fa-spinner text-info"></i> In Progress
+                    </h5>
+                    <span class="badge bg-info text-dark">4</span>
+                  </div>
+                  <div class="kanban-card-item">
+                    <span class="kanban-tag tag-urgent">Urgent</span>
+                    <h6 class="kanban-task-title">
+                      Lumina 3D Glass Morphism Shader
+                    </h6>
+                    <div class="kanban-task-meta">
+                      <span
+                        ><i class="fa-regular fa-clock me-1"></i> Today</span
+                      >
+                      <span>Assignee: ER</span>
+                    </div>
+                  </div>
+                  <div class="kanban-card-item">
+                    <span class="kanban-tag tag-high">High</span>
+                    <h6 class="kanban-task-title">
+                      NovaFin Onboarding Flow Wireframes
+                    </h6>
+                    <div class="kanban-task-meta">
+                      <span
+                        ><i class="fa-regular fa-clock me-1"></i> Tomorrow</span
+                      >
+                      <span>Assignee: SC</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Col 3: Client QA / Review -->
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <h5 class="kanban-col-title">
+                      <i class="fa-solid fa-magnifying-glass text-warning"></i>
+                      Client Review
+                    </h5>
+                    <span class="badge bg-warning text-dark">2</span>
+                  </div>
+                  <div class="kanban-card-item">
+                    <span class="kanban-tag tag-design">Proofing</span>
+                    <h6 class="kanban-task-title">
+                      Aura Fashion Editorial Cover (v2)
+                    </h6>
+                    <div class="kanban-task-meta">
+                      <span
+                        ><i class="fa-regular fa-clock me-1"></i> Pending
+                        Signoff</span
+                      >
+                      <span>Assignee: MV</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Col 4: Completed -->
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <h5 class="kanban-col-title">
+                      <i class="fa-solid fa-circle-check text-success"></i> Done
+                    </h5>
+                    <span class="badge bg-success">8</span>
+                  </div>
+                  <div class="kanban-card-item">
+                    <span class="kanban-tag tag-design">Approved</span>
+                    <h6 class="kanban-task-title">
+                      Stackly Agency Q3 Showreel 4K
+                    </h6>
+                    <div class="kanban-task-meta">
+                      <span
+                        ><i class="fa-solid fa-check text-success me-1"></i>
+                        Shipped</span
+                      >
+                      <span>Assignee: LO</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: PM Calendar -->
+            <div id="pm-calendar" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-regular fa-calendar-check"></i> Upcoming Agency
+                  Deliverable Deadlines
+                </h4>
+                <div
+                  class="p-3 border rounded mb-3 d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <strong
+                      >Lumina Tech Global - Keynote Presentation Deck</strong
+                    ><br />
+                    <span class="text-muted small"
+                      >Friday, Sep 25, 2026 @ 4:00 PM EST</span
+                    >
+                  </div>
+                  <span class="badge bg-danger">In 2 Days</span>
+                </div>
+                <div
+                  class="p-3 border rounded d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <strong
+                      >NovaFin Technologies - Executive Sprint Review
+                      Meeting</strong
+                    ><br />
+                    <span class="text-muted small"
+                      >Tuesday, Sep 29, 2026 @ 11:00 AM EST</span
+                    >
+                  </div>
+                  <span class="badge bg-primary">Next Week</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: PM SLA -->
+            <div id="pm-sla" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-shield-halved"></i> Delivery Health &
+                  Scope Risk Matrix
+                </h4>
+                <div
+                  class="alert alert-success d-flex align-items-center gap-2"
+                >
+                  <i class="fa-solid fa-circle-check fa-lg"></i>
+                  <div>
+                    All 6 active client retainers are operating within agreed
+                    SLA bounds with zero critical blockers.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: PM Reports -->
+            <div id="pm-reports" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-file-signature"></i> Recent Client
+                  Sprint Minutes
+                </h4>
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <strong>Lumina Tech - Sprint 14 Sync Minutes</strong
+                      ><br />
+                      <span class="text-muted small"
+                        >Approved 3D glass assets, requested WebGL benchmark
+                        report.</span
+                      >
+                    </div>
+                    <button
+                      class="btn btn-sm btn-outline-secondary btn-placeholder-action"
+                      type="button"
+                    >
+                      Read Notes
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- ################################################################
+               ROLE VIEW 4: CLIENT
+               ################################################################ -->
+          <section class="role-view-section" data-role="client">
+            <div class="dash-welcome-banner">
+              <span class="dash-welcome-badge">
+                <i class="fa-solid fa-user-tie me-1"></i> Client Creative Portal
+              </span>
+              <h2 class="dash-welcome-title">
+                Review, Proof & Approve Your Brand Assets
+              </h2>
+              <p class="dash-welcome-subtitle">
+                Welcome to your Stackly creative workspace. Review your latest
+                design deliverables, test interactive UI prototypes, and request
+                design revisions.
+              </p>
+              <div class="dash-welcome-actions">
+                <button
+                  type="button"
+                  class="btn-dash-primary btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-plus"></i> Request New Creative Task
+                </button>
+                <button
+                  type="button"
+                  class="btn-dash-outline-light btn-placeholder-action"
+                >
+                  <i class="fa-solid fa-headset"></i> Connect with Creative
+                  Director
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Client Overview -->
+            <div id="client-overview" class="role-tab-pane active-pane">
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Retainer Status</span>
+                    <div class="stat-value text-success">Active VIP</div>
+                    <span class="stat-meta text-muted"
+                      >95 of 120 monthly hours used</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Pending Proofs</span>
+                    <div class="stat-value text-primary">3 Deliverables</div>
+                    <span class="stat-meta text-muted"
+                      >Requires your signoff</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Upcoming Campaign Launch</span>
+                    <div class="stat-value text-info">Oct 12, 2026</div>
+                    <span class="stat-meta text-muted">Fall Brand Release</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deliverable Proofing Cards -->
+              <div class="dash-card mb-4">
+                <div class="dash-card-header">
+                  <h4 class="dash-card-title">
+                    <i class="fa-solid fa-swatchbook"></i> Pending Deliverables
+                    Awaiting Your Approval
+                  </h4>
+                  <span class="badge bg-warning text-dark"
+                    >Action Required</span
+                  >
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-12 col-md-6 col-xl-4">
+                    <div class="deliverable-card">
+                      <div class="deliverable-thumb-box">
+                        <img
+                          src="../assets/images/blog/blog-image-4.webp"
+                          alt="Proof 1"
+                          class="deliverable-thumb-img"
+                        />
+                        <span class="deliverable-version-tag">v2.1 Draft</span>
+                      </div>
+                      <div class="deliverable-body">
+                        <div>
+                          <h5 class="deliverable-title">
+                            3D Hero Product Visualization
+                          </h5>
+                          <p class="deliverable-subtitle">
+                            Lead Designer: Elena Rostova • 4K Renders
+                          </p>
+                          <span class="badge-status status-review"
+                            >Awaiting Approval</span
+                          >
+                        </div>
+                        <div class="deliverable-footer-actions">
+                          <button class="btn-proof-approve" type="button">
+                            Approve Design ✓
+                          </button>
+                          <button class="btn-proof-reject" type="button">
+                            Request Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 col-xl-4">
+                    <div class="deliverable-card">
+                      <div class="deliverable-thumb-box">
+                        <img
+                          src="../assets/images/blog/blog-image-5.webp"
+                          alt="Proof 2"
+                          class="deliverable-thumb-img"
+                        />
+                        <span class="deliverable-version-tag">v3.0 Final</span>
+                      </div>
+                      <div class="deliverable-body">
+                        <div>
+                          <h5 class="deliverable-title">
+                            Brand Identity Guidelines & Typography
+                          </h5>
+                          <p class="deliverable-subtitle">
+                            Lead Designer: Marcus Vance • PDF Vector
+                          </p>
+                          <span class="badge-status status-review"
+                            >Awaiting Approval</span
+                          >
+                        </div>
+                        <div class="deliverable-footer-actions">
+                          <button class="btn-proof-approve" type="button">
+                            Approve Design ✓
+                          </button>
+                          <button class="btn-proof-reject" type="button">
+                            Request Changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 col-xl-4">
+                    <div class="deliverable-card">
+                      <div class="deliverable-thumb-box">
+                        <img
+                          src="../assets/images/blog/blog-image-6.webp"
+                          alt="Proof 3"
+                          class="deliverable-thumb-img"
+                        />
+                        <span class="deliverable-version-tag"
+                          >v1.4 Interactive</span
+                        >
+                      </div>
+                      <div class="deliverable-body">
+                        <div>
+                          <h5 class="deliverable-title">
+                            Mobile E-Commerce Checkout Prototype
+                          </h5>
+                          <p class="deliverable-subtitle">
+                            Lead Architect: Sophia Chen • Figma Flow
+                          </p>
+                          <span class="badge-status status-approved"
+                            >Approved</span
+                          >
+                        </div>
+                        <div class="deliverable-footer-actions">
+                          <button
+                            class="btn btn-sm btn-outline-secondary btn-placeholder-action"
+                            type="button"
+                          >
+                            Open Figma
+                          </button>
+                          <button
+                            class="btn btn-sm btn-success disabled"
+                            type="button"
+                          >
+                            Approved ✓
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Client Proofing -->
+            <div id="client-proofing" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-list-check"></i> Complete Deliverable
+                  History
+                </h4>
+                <div class="table-responsive dash-table-container">
+                  <table class="dash-table table">
+                    <thead>
+                      <tr>
+                        <th>Asset Name</th>
+                        <th>Type</th>
+                        <th>Designer</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                        <th>Download</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>Primary Logo Suite (SVG, EPS, PNG)</strong>
+                        </td>
+                        <td>Brand Vector</td>
+                        <td>Marcus Vance</td>
+                        <td>Sep 14, 2026</td>
+                        <td>
+                          <span class="badge-status status-approved"
+                            >Approved</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-light btn-placeholder-action"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-download"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong
+                            >Autumn Social Media Video Pack (10 clips)</strong
+                          >
+                        </td>
+                        <td>MP4 Video</td>
+                        <td>Liam O'Connor</td>
+                        <td>Sep 18, 2026</td>
+                        <td>
+                          <span class="badge-status status-approved"
+                            >Approved</span
+                          >
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-light btn-placeholder-action"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-download"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Client Revisions -->
+            <div id="client-revisions" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-comments"></i> Creative Feedback &
+                  Revision Log
+                </h4>
+                <div class="p-3 border rounded mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-1"
+                  >
+                    <strong
+                      >Revision #104 - 3D Render Glass Reflection
+                      Adjustment</strong
+                    >
+                    <span class="badge bg-success">Resolved in v2.1</span>
+                  </div>
+                  <p class="text-muted small mb-0">
+                    Requested softer gradient lighting on the top left rim.
+                    Completed by Elena Rostova.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Client Invoices -->
+            <div id="client-invoices" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-receipt"></i> Retainer Invoices &
+                  Billing Statements
+                </h4>
+                <div class="table-responsive dash-table-container">
+                  <table class="dash-table table">
+                    <thead>
+                      <tr>
+                        <th>Invoice #</th>
+                        <th>Billing Period</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Receipt</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>INV-2026-0901</strong></td>
+                        <td>September 2026 Creative Retainer</td>
+                        <td>$24,500.00</td>
+                        <td>
+                          <span class="badge-status status-paid">Paid</span>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary btn-download-invoice"
+                            data-invoice="INV-2026-0901"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-file-pdf me-1"></i> PDF
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>INV-2026-0801</strong></td>
+                        <td>August 2026 Creative Retainer</td>
+                        <td>$24,500.00</td>
+                        <td>
+                          <span class="badge-status status-paid">Paid</span>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-sm btn-outline-primary btn-download-invoice"
+                            data-invoice="INV-2026-0801"
+                            type="button"
+                          >
+                            <i class="fa-solid fa-file-pdf me-1"></i> PDF
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Client Brand Assets -->
+            <div id="client-brand" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-folder-open"></i> Brand Assets &
+                  Typography Cloud Drive
+                </h4>
+                <div class="row g-3">
+                  <div class="col-12 col-md-4">
+                    <div class="p-3 border rounded text-center">
+                      <i class="fa-solid fa-font fa-2x text-primary mb-2"></i>
+                      <h6>Custom Brand Fonts</h6>
+                      <p class="text-muted small">
+                        OTF / WOFF2 Package (4.2 MB)
+                      </p>
+                      <button
+                        class="btn btn-sm btn-light w-100 btn-placeholder-action"
+                        type="button"
+                      >
+                        Download Fonts
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="p-3 border rounded text-center">
+                      <i class="fa-solid fa-images fa-2x text-success mb-2"></i>
+                      <h6>Master Vector Logos</h6>
+                      <p class="text-muted small">
+                        SVG, AI, PDF, Transparent PNG
+                      </p>
+                      <button
+                        class="btn btn-sm btn-light w-100 btn-placeholder-action"
+                        type="button"
+                      >
+                        Download Vector Kit
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="p-3 border rounded text-center">
+                      <i
+                        class="fa-solid fa-book-bookmark fa-2x text-warning mb-2"
+                      ></i>
+                      <h6>Brand Guidelines 2026</h6>
+                      <p class="text-muted small">Comprehensive 48-Page PDF</p>
+                      <button
+                        class="btn btn-sm btn-light w-100 btn-placeholder-action"
+                        type="button"
+                      >
+                        Download PDF
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ################################################################
+               ROLE VIEW 5: GUEST / VIEWER
+               ################################################################ -->
+          <section class="role-view-section" data-role="guest">
+            <div class="dash-welcome-banner">
+              <span class="dash-welcome-badge">
+                <i class="fa-solid fa-eye me-1"></i> Public Agency Showcase
+              </span>
+              <h2 class="dash-welcome-title">
+                Explore Stackly Agency Capabilities & Case Studies
+              </h2>
+              <p class="dash-welcome-subtitle">
+                Discover how our multidisciplinary creative team crafts
+                visionary brand experiences, 3D worlds, and digital products for
+                global category leaders.
+              </p>
+              <div class="dash-welcome-actions">
+                <button
+                  type="button"
+                  class="btn-dash-primary"
+                  onclick="
+                    document
+                      .querySelector('[data-tab-target=\'guest-proposal\']')
+                      .click()
+                  "
+                >
+                  <i class="fa-solid fa-paper-plane"></i> Request a Project
+                  Proposal
+                </button>
+                <a
+                  href="../pages/portfolio.html"
+                  class="btn-dash-outline-light"
+                >
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Full
+                  Public Portfolio
+                </a>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Guest Showcase -->
+            <div id="guest-showcase" class="role-tab-pane active-pane">
+              <div class="row g-4 mb-4">
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">International Design Awards</span>
+                    <div class="stat-value text-primary">48+ Trophies</div>
+                    <span class="stat-meta text-muted"
+                      >Awwwards, Red Dot & D&AD</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Client Satisfaction</span>
+                    <div class="stat-value text-success">99.4% CSAT</div>
+                    <span class="stat-meta text-muted"
+                      >Over 150+ Brands Transformed</span
+                    >
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="stat-card">
+                    <span class="stat-title">Global Reach</span>
+                    <div class="stat-value text-info">14 Countries</div>
+                    <span class="stat-meta text-muted"
+                      >Offices in NYC, London, Tokyo</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Showcase Projects -->
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h4 class="dash-card-title">
+                    <i class="fa-solid fa-star"></i> Featured Creative Case
+                    Studies
+                  </h4>
+                </div>
+                <div class="row g-4">
+                  <div class="col-12 col-md-6">
+                    <div class="deliverable-card">
+                      <div class="deliverable-thumb-box">
+                        <img
+                          src="../assets/images/blog/blog-featured-section-img.webp"
+                          alt="Case Study 1"
+                          class="deliverable-thumb-img"
+                        />
+                        <span class="deliverable-version-tag"
+                          >Global Rebrand</span
+                        >
+                      </div>
+                      <div class="deliverable-body">
+                        <h5 class="deliverable-title">
+                          Lumina Tech - Future of Holographic Intelligence
+                        </h5>
+                        <p class="deliverable-subtitle">
+                          Complete 3D visual language, brand positioning, and
+                          interactive WebGL design system.
+                        </p>
+                        <a
+                          href="../pages/portfolio.html"
+                          class="btn btn-sm btn-outline-primary"
+                          >View Full Case Study</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="deliverable-card">
+                      <div class="deliverable-thumb-box">
+                        <img
+                          src="../assets/images/blog/blog-banner-image.webp"
+                          alt="Case Study 2"
+                          class="deliverable-thumb-img"
+                        />
+                        <span class="deliverable-version-tag"
+                          >Digital Campaign</span
+                        >
+                      </div>
+                      <div class="deliverable-body">
+                        <h5 class="deliverable-title">
+                          Aura Couture - Luxury Editorial & E-Commerce
+                        </h5>
+                        <p class="deliverable-subtitle">
+                          Bespoke fashion digital platform with immersive 3D
+                          garment visualizers and micro-animations.
+                        </p>
+                        <a
+                          href="../pages/portfolio.html"
+                          class="btn btn-sm btn-outline-primary"
+                          >View Full Case Study</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Guest Demo -->
+            <div id="guest-demo" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-laptop-code"></i> Interactive Prototype
+                  Demo
+                </h4>
+                <p class="text-muted">
+                  Experience how clients interact with our live review pipeline,
+                  high-fidelity tokens, and proofing tools.
+                </p>
+                <div class="p-4 bg-light rounded text-center">
+                  <i
+                    class="fa-solid fa-circle-play fa-3x text-primary mb-3"
+                  ></i>
+                  <h5>Interactive Brand Visualizer Experience</h5>
+                  <p class="text-muted small">
+                    Switch to the <strong>Client</strong> or
+                    <strong>Creative Designer</strong> role above using the
+                    topbar dropdown to interact with live proofs!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Guest Rates -->
+            <div id="guest-rates" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-tags"></i> Agency Engagement Models &
+                  Retainers
+                </h4>
+                <div class="row g-4">
+                  <div class="col-12 col-md-4">
+                    <div class="p-4 border rounded h-100 text-center">
+                      <h5 class="fw-bold">Sprint Retainer</h5>
+                      <h3 class="text-primary my-3">
+                        $18,000<span class="fs-6 text-muted">/mo</span>
+                      </h3>
+                      <p class="text-muted small">
+                        80 Dedicated Creative Hours. Ideal for scaling startups.
+                      </p>
+                      <button
+                        class="btn btn-outline-primary btn-sm rounded-pill w-100 mt-3 btn-placeholder-action"
+                        type="button"
+                      >
+                        Select Tier
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div
+                      class="p-4 border border-primary rounded h-100 text-center shadow-sm position-relative"
+                    >
+                      <span
+                        class="position-absolute top-0 start-50 translate-middle badge bg-primary"
+                        >Most Popular</span
+                      >
+                      <h5 class="fw-bold">Enterprise Studio</h5>
+                      <h3 class="text-primary my-3">
+                        $32,000<span class="fs-6 text-muted">/mo</span>
+                      </h3>
+                      <p class="text-muted small">
+                        160 Hours + Dedicated Creative Director & 3D Team.
+                      </p>
+                      <button
+                        class="btn btn-primary btn-sm rounded-pill w-100 mt-3 btn-placeholder-action"
+                        type="button"
+                      >
+                        Select Tier
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="p-4 border rounded h-100 text-center">
+                      <h5 class="fw-bold">Custom Campaign</h5>
+                      <h3 class="text-primary my-3">Custom</h3>
+                      <p class="text-muted small">
+                        Full 360-degree brand launch and CGI production.
+                      </p>
+                      <button
+                        class="btn btn-outline-primary btn-sm rounded-pill w-100 mt-3 btn-placeholder-action"
+                        type="button"
+                      >
+                        Inquire Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB PANE: Guest Proposal -->
+            <div id="guest-proposal" class="role-tab-pane">
+              <div class="dash-card">
+                <h4 class="dash-card-title mb-3">
+                  <i class="fa-solid fa-envelope-open-text"></i> Request a
+                  Creative Project Proposal
+                </h4>
+                <form id="guestProposalForm" class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold">Your Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="e.g. Alexandra Smith"
+                      required
+                    />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold"
+                      >Company / Brand</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="e.g. Apex Innovations"
+                      required
+                    />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold">Work Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="alex@apex.com"
+                      required
+                    />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold"
+                      >Primary Creative Need</label
+                    >
+                    <select class="form-select">
+                      <option>Brand Identity & Strategy</option>
+                      <option>3D Motion & CGI Visuals</option>
+                      <option>UI/UX & Product Design</option>
+                      <option>Monthly Dedicated Retainer</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold"
+                      >Project Brief & Estimated Timeline</label
+                    >
+                    <textarea
+                      class="form-control"
+                      rows="4"
+                      placeholder="Tell us about your project vision, deliverables needed, and timeline goals..."
+                    ></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      id="btnSubmitProposal"
+                      type="button"
+                      class="btn btn-dash-primary"
+                    >
+                      <i class="fa-solid fa-paper-plane me-1"></i> Send Proposal
+                      Request
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Dashboard Logic -->
+    <script src="../assets/js/dashboard.js"></script>
+  </body>
+</html>

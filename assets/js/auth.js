@@ -553,8 +553,33 @@ function initLoginFormValidation() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin me-2"></i> Authenticating...`;
 
+    // Extract role and user details
+    const selectedRole = roleSelect.value;
+    const userIdentifier = emailVal;
+
+    // Save to storage for Dashboard role retrieval
+    const sessionData = {
+      role: selectedRole,
+      email: userIdentifier,
+      name:
+        userIdentifier
+          .split("@")[0]
+          .replace(/[^a-zA-Z0-9]/g, " ")
+          .trim() || "Creative User",
+      rememberMe: rememberCheckbox.checked,
+      loginTime: new Date().toISOString(),
+    };
+
+    try {
+      localStorage.setItem("stackly_auth_user", JSON.stringify(sessionData));
+      sessionStorage.setItem("stackly_auth_user", JSON.stringify(sessionData));
+    } catch (err) {
+      console.warn("Storage write error:", err);
+    }
+
     if (alertBox) {
-      alertBox.textContent = "Authentication successful! Redirecting...";
+      alertBox.textContent =
+        "Authentication successful! Redirecting to Dashboard...";
       alertBox.className = "auth-alert-box auth-alert-success visible";
     }
 
@@ -562,14 +587,16 @@ function initLoginFormValidation() {
       submitBtn.disabled = false;
       submitBtn.innerHTML = `<i class="fa-solid fa-check me-2"></i> Logged In Successfully`;
 
-      // Redirection target (Home page)
+      // Redirection target (Dashboard page)
       setTimeout(() => {
         const isInPages = window.location.pathname
           .replace(/\\/g, "/")
           .includes("/pages/");
-        window.location.href = isInPages ? "../index.html" : "index.html";
-      }, 1200);
-    }, 1500);
+        window.location.href = isInPages
+          ? "dashboard.html"
+          : "pages/dashboard.html";
+      }, 1000);
+    }, 1200);
   });
 }
 
