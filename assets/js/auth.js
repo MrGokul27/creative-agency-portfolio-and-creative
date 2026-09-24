@@ -187,22 +187,22 @@ function initUsernameInputRestriction() {
     // Allow keyboard shortcuts (Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+Z, etc.)
     if (e.ctrlKey || e.metaKey || e.altKey) return;
 
-    // If key is not a letter (a-z, A-Z) or a space, reject keypress
-    if (!/^[a-zA-Z\s]$/.test(e.key)) {
+    // If key is not a letter (a-z, A-Z), reject keypress
+    if (!/^[a-zA-Z]$/.test(e.key)) {
       e.preventDefault();
     }
   });
 
   // Intercept beforeinput if supported
   usernameInput.addEventListener("beforeinput", (e) => {
-    if (e.data && !/^[a-zA-Z\s]+$/.test(e.data)) {
+    if (e.data && !/^[a-zA-Z]+$/.test(e.data)) {
       e.preventDefault();
     }
   });
 
   // Sanitize on input (catches paste, drag-and-drop, autofill)
   usernameInput.addEventListener("input", () => {
-    const cleaned = usernameInput.value.replace(/[^a-zA-Z\s]/g, "");
+    const cleaned = usernameInput.value.replace(/[^a-zA-Z]/g, "");
     if (usernameInput.value !== cleaned) {
       usernameInput.value = cleaned;
     }
@@ -212,7 +212,7 @@ function initUsernameInputRestriction() {
   usernameInput.addEventListener("paste", (e) => {
     e.preventDefault();
     const pasteText = (e.clipboardData || window.clipboardData).getData("text");
-    const cleaned = pasteText.replace(/[^a-zA-Z\s]/g, "");
+    const cleaned = pasteText.replace(/[^a-zA-Z]/g, "");
     const start = usernameInput.selectionStart;
     const end = usernameInput.selectionEnd;
     const currentVal = usernameInput.value;

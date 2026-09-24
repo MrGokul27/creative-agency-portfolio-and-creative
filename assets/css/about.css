@@ -1246,10 +1246,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
+  align-self: end;
   color: #94a3b8;
-  font-size: 18px;
+  font-size: 28px;
   flex-shrink: 0;
+  padding: 0;
+  margin-bottom: 45px;
+  line-height: 1;
 }
 
 /* Right Highlight Quote Card */
